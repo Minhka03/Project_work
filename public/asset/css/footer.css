@@ -1,0 +1,118 @@
+.email-input input{
+    display: inline-block;
+    height: 50px;
+    width: 250px;
+    background-color: #696969;
+    color: #655f5f;
+    border: none;
+}
+.email {
+    width: 300px;
+    position: relative;
+}
+.submit-form {
+    display: inline-block;
+    min-width: 50px;
+    position: absolute;
+    top: 0%;
+    display: inline-block;
+    height: 50px;
+    right: 17%;
+    margin-left: 20%;
+   
+}
+.submit-form .fa-arrow-right {
+    color: #fff;
+}
+
+.pages-footer {
+    padding: 50px 50px 20px 50px;
+}
+
+footer {
+    border-top: 1px solid #4d4d4d;
+    border-bottom: 1px solid #4d4d4d;
+    background-color: #333333;
+    color: #696969;
+}
+.logo-footer {
+    max-width: 150px;
+}
+
+.logo-footer img {
+    max-width: 100%;
+    color: #fff;
+}
+.coppy {
+    text-align: center;
+    margin:25px 0;
+    width: 100%;
+}
+.payment-card i {
+    color: #696969;
+    font-size: 30px;
+}
+.pages-footer a:hover {
+    color: #f76b6a;
+    
+}
+.text-support , .shop , .text-company , .subscribe {
+    font-weight: 500;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width:532px) {
+    .support {
+        display: none;
+    }
+    .shop-footer {
+        display: none;
+    }
+    .company {
+        display: none;
+    }
+   .item-subscribe {
+    margin-top: 20px;
+   }
+}
+
+@media screen and (max-width:340px) {
+    .email-input input  {
+            width: 250px;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .email-input input {
+            width:215px;
+    }
+    .submit-form {
+        
+        right: 0 !important;
+       
+    }
+
+    .email {
+        width: 210px;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:426px) {
+    .coppy {
+        font-size: 13px;
+    }
+}
+
+.submit-form:hover {
+    background-color: #f76b6a;
+}
+.input-email::placeholder {
+    color: #ababab;
+    font-size: 15px;
+    padding-left: 10px;
+    
+}

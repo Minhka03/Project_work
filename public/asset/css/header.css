@@ -1,0 +1,450 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  background-color: #988c8c;
+}
+
+.logo {
+  align-items: center;
+}
+
+.logo img {
+  color: #fff;
+}
+
+
+.nav-menu {
+  justify-content: center;
+  margin: 0;
+
+}
+
+.nav-menu .nav-item {
+  padding:  30px;
+  justify-content: center;
+  list-style: none;
+}
+.nav-item .fa-magnifying-glass {
+  font-size: 40px;
+}
+
+.nav-menu .nav-item a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+.nav-item .fa-solid {
+  font-size: 20px;
+  margin-top: 5px;
+
+}
+
+.nav-item ul {
+  display: none;
+  max-width: 850px;
+  position: absolute;
+   top: 80px; 
+  padding: 0;
+  animation: bannerfly 1s forwards;
+  
+}
+
+.nav-item ul .menu-con {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+.nav-item:hover ul {
+  display: block;
+}
+
+.category {
+
+  margin-left: 40px;
+  margin-right: 50px;
+  margin-top: 30px;
+  width: 100%;
+
+}
+
+.category img {
+  width: 100%;
+  padding-right: 50px;
+  max-height: 100%;
+}
+
+.category .text-cate a {
+  color: #988c8c;
+  text-decoration: none;
+}
+
+@keyframes bannerfly {
+  from {
+    opacity: 0;
+    margin-top: 100px;
+
+  }
+
+  to {
+
+    opacity: 1;
+    margin-bottom: -500px;
+  }
+
+}
+
+
+
+
+
+/* :root {
+  --white: #fff;
+  --black: #221f1f;
+  --lightpurple: #9e91f2;
+  --darkgray: #1e1f26;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* body {
+  position: relative;
+  font: 16px/1.5 sans-serif;
+  color: var(--white);
+} */
+
+
+/* MAIN RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.page-header {
+  position: relative;
+}
+.trigger-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  z-index: 0;
+  justify-content: center;
+  transition: transform 0.4s;
+}
+
+.page-header .trigger-menu {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--white);
+
+  /* background-color: #fff; */
+  /* border: 1px solid #fff; */
+}
+
+.page-header .trigger-menu svg {
+  fill: var(--white);
+  margin-right: 8px;
+  transition: transform 0.3s;
+}
+
+.page-header .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  text-align: center;
+  padding: 15vh 0 5vh;
+  overflow: auto;
+  /* z-index: 1; */
+  background: var(--lightpurple);
+}
+
+.page-header .menu a {
+  font-size: 3rem;
+}
+
+.page-header .sub-menu a {
+  font-size: 1.5rem;
+}
+
+.lottie-wrapper {
+  /* position: fixed; */
+  bottom: 50px;
+  right: 25px;
+  z-index: 1;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.page-main section {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.page-main section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* BODY CLASSES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.menu-open {
+  overflow: hidden;
+}
+
+.menu-open .trigger-menu-wrapper {
+  background: transparent;
+}
+
+.menu-open .page-header .menu {
+  display: block;
+}
+
+.menu-open .page-header svg {
+  transform: rotate(45deg);
+}
+
+.menu-open-with-lottie .page-header .menu {
+  padding: 5vh 0;
+}
+
+.scroll-down .trigger-menu-wrapper {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-down .lottie-wrapper {
+  background: var(--darkgray);
+}
+
+.scroll-up .trigger-menu-wrapper {
+  transform: none;
+}
+
+.scroll-up:not(.menu-open) .trigger-menu-wrapper {
+  background: var(--lightpurple);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+}
+
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 25px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--darkgray);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
+}
+
+
+
+
+.menu-moblie {
+  
+  display: none;
+}
+
+@media screen and (max-width: 1190px) {
+
+  .logo-item {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+  .fa-bars:before {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+  }
+
+  .fa-magnifying-glass:before {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.nav-menu {
+  opacity: 0;
+  }
+  .menu-bar {
+    opacity: 0;
+  }
+
+
+    
+
+  
+}  
+
+
+@media screen and (min-width: 1189px) {
+  .fa-bars:before{
+    opacity: 0;
+  }
+  .none::before {
+    opacity: 0;
+  }
+  
+
+ 
+}
+
+
+
+
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #212121;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: rgb(167, 197, 222);
+  color: red;
+}
+.hover:hover {
+  background-color: rgb(167, 197, 222);
+  color: red;
+}
+.hover:hover a {
+  color: red;
+}
+
+.active {
+  color: white;
+  border-top: 1px solid #313131 !important;
+  border-bottom: 1px solid #313131 !important;
+  
+} 
+.offcanvas-body {
+  padding: 0;
+  height: 100%;
+  background-color: #212121;
+}
+
+
+.active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #313131 ;
+}
+.active  .fa-chevron-up {
+  transform: rotate(180deg);
+}
+.blog{
+ 
+  border-bottom: 1px solid #313131 ;
+}
+
+#myLinks {
+  background-color: #313131;
+}
+#myLinks .item-con {
+  border-bottom: 1px solid #ffffff0f ;
+}
+
+.search {
+  position: relative;
+  background-color: #313131;
+  padding: 10px 0px;
+  border-radius: none !important;
+}
+.search:hover {
+  border: 1px solid red;
+}
+
+
+.icon_search {
+  position: absolute;
+  right: 15%;
+  color: #fff;
+}
+.offcanvas-header {
+  background-color: #111;
+}

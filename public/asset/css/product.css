@@ -1,0 +1,50 @@
+.banner-product {
+    background-image: url(https://themes.g5plus.net/april/wp-content/uploads/2017/08/page-title-04.jpg?id=2385) !important;
+    width: 100%;
+    position: relative;
+    height: 600px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.title {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+   
+
+}
+.title ul li {
+    display: inline-block;
+    padding: 5px;
+}
+.title .title-name {
+    font-size: 70px;
+    color: #333 !important;
+    font-weight: 700;
+    margin-left: 45px;
+}
+.title ul li a {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ababab;
+}
+.title ul li a:hover {
+    color: #f76b6a;
+}
+.title ul li  .shop {
+    color: #333;
+    border-bottom: 2px solid #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+
