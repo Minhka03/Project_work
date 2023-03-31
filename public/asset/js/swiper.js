@@ -112,3 +112,98 @@ var swiper = new Swiper(".mySwiprer-blog", {
       }
 
     });
+
+
+
+    // swiper about 
+    var swiper = new Swiper(".swiper-about", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
+
+      breakpoints : {
+
+        300: {
+          slidesPerView : 1 ,
+        },
+        425 : {
+          slidesPerView : 1 ,
+        },
+        767: {
+          slidesPerView : 1 ,
+        },
+        768: {
+          slidesPerView : 2 ,
+        },
+        989: {
+          slidesPerView : 2 ,
+        },
+        993: {
+          slidesPerView : 3
+        },
+        1000: {
+          slidesPerView : 3
+        },
+        1024 : {
+          slidesPerView : 2
+        },
+        1200 : {
+          slidesPerView : 3
+        }
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+    });
+
+
+
+    var swiper = new Swiper(".swiper-partner", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
+
+      breakpoints : {
+
+        300: {
+          slidesPerView : 1 ,
+        },
+        425 : {
+          slidesPerView : 2 ,
+        },
+        767: {
+          slidesPerView : 1 ,
+        },
+        768: {
+          slidesPerView : 3 ,
+        },
+        989: {
+          slidesPerView : 2 ,
+        },
+        993: {
+          slidesPerView : 3
+        },
+        1000: {
+          slidesPerView : 3
+        },
+        1024 : {
+          slidesPerView : 4
+        },
+        1200 : {
+          slidesPerView : 6
+        }
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+    });

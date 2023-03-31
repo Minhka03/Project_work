@@ -20,4 +20,14 @@ class HomeController extends Controller
     public function cart() {
         return view('client.page.cart');
     }
+    public function blog() {
+        return view('client.page.blog');
+    }
+    public function about() {
+        return view('client.page.about');
+    }
+    public function contact() {
+        return view('client.page.contact');
+    }
+
 }

@@ -135,7 +135,7 @@
 
 
 
-                         
+
 
                         </div>
                         <div class="item-end">
@@ -162,6 +162,13 @@
 
                     </div>
                 </div>
+            </div>
+
+            <div class="description-detail">
+                <p class="name">Description</p>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed voluptas voluptatibus placeat delectus atque rem vel? Corporis impedit earum beatae asperiores aliquam est cumque minus, veniam a, provident maiores!
+                    Lorem ipsum dolor sit.
+                </p>
             </div>
 
             <div class="related-products">

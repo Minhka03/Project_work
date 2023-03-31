@@ -26,13 +26,14 @@
     position: absolute;
     left: 5%;
     bottom: 8%;
-    transform: rotate(-90deg);
+   
    
 }
 .text-banner h2 {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 40px;    
+    transform: rotate(-90deg);
    
     
 }
@@ -40,6 +41,7 @@
     font-size: 20px;
     color: #333;
     margin-left: 100px;
+    transform: rotate(-90deg);
   
 }
 .banner-button {
@@ -272,7 +274,7 @@ font-size: 40px;
 
 .banner-category {
     background-color: #f4f4f4 ;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 .banner-text-cate {
     width: 32%;
@@ -568,7 +570,7 @@ font-size: 40px;
 }
 
 .product-item {
-    font-size: 40px;
+    font-size: 35px;
     display: inline-block;
     border-bottom: 2px solid #333;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -916,7 +918,7 @@ font-size: 40px;
 
 .text-blog p {
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     display: inline-block;
     margin: 0 auto;
     line-height: 80px;
@@ -1080,3 +1082,128 @@ font-size: 40px;
 
 
 
+
+
+  .my-element {
+    display: inline-block;
+    margin: 0 5rem;
+    animation: bannerfly 1s forwards;
+     /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+  }
+
+  @keyframes bannerfly {
+    from {
+      opacity: 0;
+      margin-top: 100px;
+  
+    }
+  
+    to {
+  
+      opacity: 1;
+      margin-bottom: -1000px;
+    }
+  
+  }
+
+
+  .animate__animated.animate__bounce {
+    --animate-duration: 2s;
+  }
+  
+  /* This changes all the animations globally */
+  :root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+    
+  }
+
+
+  .slide-top {
+	-webkit-animation: slide-top 3s ease both;
+	        animation: slide-top 3s ease both;
+}
+
+ 
+
+  @-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(200px);
+              transform: translateY(200px);
+              opacity: 0;
+    }
+    10% {
+        -webkit-transform: translateY(120px);
+                transform: translateY(120px);
+                opacity: 0;
+      }
+   
+    100% {
+        /* transition: 0.3s; */
+        opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              
+    }
+  }
+  
+
+   .slide-top1 {
+	-webkit-animation: slide-top1 3s ease both;
+	        animation: slide-top1 3s ease both;
+}
+
+ 
+
+  @-webkit-keyframes slide-top1 {
+    0% {
+      -webkit-transform: translateY(200px);
+              transform: translateY(200px);
+              opacity: 0;
+    }
+  
+   
+    100% {
+        /* transition: 0.3s; */
+        opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              
+    }
+  }
+  
+
+
+
+   .slide-top2 {
+	-webkit-animation: slide-top2 3s ease both;
+	        animation: slide-top2 3s ease both;
+}
+
+ 
+
+  @-webkit-keyframes slide-top2 {
+    0% {
+      -webkit-transform: translateY(200px);
+              transform: translateY(200px);
+              opacity: 0;
+    }
+
+    50% {
+        -webkit-transform: translateY(120px);
+                transform: translateY(120px);
+                opacity: 0;
+      }
+    
+   
+   
+    100% {
+        /* transition: 0.3s; */
+        opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              
+    }
+  }
+  

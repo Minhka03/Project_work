@@ -32,10 +32,11 @@
     font-weight: 600;
     color: #ababab;
 }
- .text {
-    border-bottom: 1px solid #333;
+ .text-cart {
+    border-bottom: 1px solid #000;
     text-transform: uppercase;
     font-weight: 500;
+    font-size: 13px;
 }
 .name-product  {
    

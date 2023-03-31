@@ -18,7 +18,7 @@
                 <a href="">/</a>
             </li>
             <li>
-                <p class="text">Cart</p>
+                <p class="text-cart">Cart</p>
             </li>
         </ul>
     </div>

@@ -3,20 +3,20 @@
 
 <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-reletive" data-bs-ride="carousel">
     <div class="carousel-inner" style="height: 100vh;">
-        <div class="carousel-item active" style="height: 100vh;">
+        <div class="carousel-item active " style="height: 100vh;">
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-20.jpg" alt="...">
 
-            <div class="banner-animation">
+            <div class="banner-animation  ">
 
-                <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-22.png" alt="">
+                <img class="slide-top" src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-22.png" alt="">
             </div>
-            <div class="text-banner">
+            <div class=" slide-top  text-banner ">
                 <h2>spring</h2>
                 <p>2023</p>
             </div>
-            <div class="btn_banner  w-100  text-center">
+            <div class=" slide-top  btn_banner w-100  text-center">
                 <!-- <div class="d-flex flex-wrap "> -->
-                <div class="btn_banner_1">
+                <div class="btn_banner_1 ">
                     <a>Learn more</a>
                 </div>
                 <div class="btn_banner_2">
@@ -40,13 +40,13 @@
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-26.jpg" alt="...">
             <div class="banner-animation">
 
-                <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-24.png" alt="">
+                <img  class="slide-top"  src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-24.png" alt="">
             </div>
-            <div class="text-banner">
+            <div class="  slide-top  text-banner">
                 <h2>spring</h2>
                 <p>2023</p>
             </div>
-            <div class="btn_banner  w-100  text-center">
+            <div class="btn_banner slide-top   w-100  text-center">
                 <!-- <div class="d-flex flex-wrap "> -->
                 <div class="btn_banner_1">
                     <a>Learn more</a>
@@ -70,19 +70,19 @@
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-27.jpg" alt="...">
             <div class="banner-animation">
 
-                <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-25.png" alt="">
+                <img  class="slide-top"  src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-25.png" alt="">
             </div>
-            <div class="text-banner">
+            <div class="  slide-top  text-banner">
                 <h2>spring</h2>
                 <p>2023</p>
             </div>
-            <div class="btn_banner  w-100 text-center">
+            <div class="btn_banner slide-top   w-100 text-center">
                 <!-- <div class="d-flex flex-wrap "> -->
                 <div class="btn_banner_1">
-                    <a>Learn more</a>
+                    <a >Learn more</a>
                 </div>
                 <div class="btn_banner_2">
-                    <a>Shop Now</a>
+                    <a >Shop Now</a>
                 </div>
                 <!-- </div> -->
 
@@ -218,7 +218,7 @@
         <div class="many-products mb-5 tab-pane fade show active " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -246,7 +246,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -273,7 +273,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -301,7 +301,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -328,7 +328,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -355,7 +355,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -382,7 +382,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -409,7 +409,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -436,7 +436,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -463,7 +463,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -502,9 +502,9 @@
 
 
 
-        <div class="many-products tab-pane fade mb-5 " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+        <div class="  many-products tab-pane fade mb-5 " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -532,7 +532,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -559,7 +559,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -587,7 +587,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -614,7 +614,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -641,7 +641,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2  ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -668,7 +668,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -695,7 +695,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -722,7 +722,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -749,7 +749,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -785,7 +785,7 @@
 
         <div class="many-products tab-pane fade  mb-5 " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -813,7 +813,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -840,7 +840,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -868,7 +868,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -895,7 +895,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -922,7 +922,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -949,7 +949,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -976,7 +976,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -1003,7 +1003,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -1030,7 +1030,7 @@
                     </div>
 
                 </div>
-                <div class="col ">
+                <div class="col slide-top2 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">

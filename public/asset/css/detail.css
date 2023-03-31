@@ -200,8 +200,8 @@ a:hover .fa-arrow-left , a:hover .fa-arrow-right {
 }
 .categories-name .cate {
   margin-right: 10px;
-  font-weight: 700;
-    font-size: 14px;
+  font-weight: 650;
+    font-size: 12px;
     letter-spacing: 0.1em;
     color: #696969;
     text-transform: uppercase;
@@ -212,16 +212,16 @@ a:hover .fa-arrow-left , a:hover .fa-arrow-right {
 
 .tags .tags_name {
   margin-right: 30px;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 650;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: #696969;
   text-transform: uppercase;
 }
 .share .name_share {
   margin-right: 20px;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 650;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: #696969;
   text-transform: uppercase;
@@ -237,9 +237,11 @@ a:hover .fa-arrow-left , a:hover .fa-arrow-right {
 }
 .categories-name p{
   color: #696969;
+  font-size: 13px;
 }
 .tags p {
   color: #696969;
+  font-size: 13px;
 }
 .list_cart {
   background-color: #333;
@@ -675,4 +677,27 @@ a:hover .fa-arrow-left , a:hover .fa-arrow-right {
     background: #ebebeb;
     color: black;
   }
+}
+
+.description-detail {
+  width:60%;
+  margin: 0 auto;
+  border-top: 1px solid ;
+}
+.description-detail {
+  width: 100%;
+  border-top: 1px solid #ebebeb;
+}
+.description-detail .name {
+  text-align: center;
+  padding: 0 200px;
+  font-size: 30px;
+  font-weight: 650;
+  margin-top: 30px;
+  
+}
+.description-detail .description {
+  font-size: 15px;
+  color: #696969;
+  padding:  0 300px;
 }
