@@ -2,6 +2,20 @@
 
 
 <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-reletive" data-bs-ride="carousel">
+    @if (Session::has('no'))
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{Session::get('no')}}
+            </div>
+            @endif
+            
+            @if (Session::has('yes'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{Session::get('yes')}}
+            </div>
+            @endif
+
     <div class="carousel-inner" style="height: 100vh;">
         <div class="carousel-item active " style="height: 100vh;">
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-20.jpg" alt="...">

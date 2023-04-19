@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3" style="margin-bottom: 10px;">
             <label for="" class="form-label">Thêm nhiều ảnh vào sản phẩm</label>
-            <input type="file" name="image" id="my_img" class="form-control" placeholder="" style="width: 500px;" onchange="file_image()">
+            <input type="file" name="image" id="my_img" class="form-control" placeholder=""  style="width: 500px;" onchange="file_image()" multiple >
             <img src="" id="image_preview" width="120px" style="margin-top: 10px;" alt="">
             @error('images')
             <small id="helpId" style="color: red;" class="text-muted">{{$message}}</small>

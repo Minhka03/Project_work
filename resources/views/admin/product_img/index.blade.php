@@ -25,22 +25,7 @@
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->cate->name}}</td>
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->price}}/<span>{{$product->discount}}</span></td>
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->status == 1 ? 'In Stock' : 'Out Stock'}}</td>
-                <td class="text-center align-middle" style="vertical-align: middle;">
-                    @foreach ($product->att as $item )
-                    @if ($item->name == 'color')
-                    {{$item->value}}<br>
-                    @endif
-                    @endforeach
-
-                </td>
-                <td class="text-center align-middle" style="vertical-align: middle;">
-
-                    @foreach ($product->att as $item )
-                    @if ($item->name == 'size')
-                    {{$item->value}}<br>
-                    @endif
-                    @endforeach
-                </td>
+              
                 <td class="text-center align-middle" style="vertical-align: middle;">
                     <img src="/uploads/{{$product->image}}" width="100px" alt="">
                 </td>

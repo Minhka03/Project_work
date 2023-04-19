@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attribute as ModelsAttribute;
+use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Product;
-use Attribute;
+use App\Models\Product_Att;
 use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +18,29 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $product = Product::all();
+    public function index(Request $request)
 
+    {
+       
+        $product = Product::orderBy('id' , 'ASC')->paginate(2);
+
+        if($request->keyword) {
+          $product = Product::Where('name', 'like', '%'.$request->keyword.'%')
+                ->orderBy('id', 'ASC')
+                ->paginate(2);
+        }
+        
+       
+     
         return view('admin.product.index' , compact('product'));
 
+        
+        // dd(Product::all()[1]); laays ra sanr phaame cu theer 
+        // dd(Product::all()[1]->pro_att); lay ra mang san pham theo id cua san pham treen
+        // dd(Product::all()[1]->pro_att[0]); lya r phan tu dau tien trong mang cua dong 30
+        // dd(Product::all()[1]->pro_att[0]->att);
+        
+       
 
     }
 
@@ -36,15 +53,18 @@ class ProductController extends Controller
     {   
         
         $product = Product::all();
+
+       
         
         $discount = $request->discount;
       
 
         $ids = $request->product_id;
 
-        $product_id = explode(",", $ids);
-     
-        Product::whereIn('id', $product_id )->update([
+    
+
+        $ids = explode(",", $ids);
+        Product::whereIn('id', $ids )->update([
             'discount' => DB::raw(" price * $discount / 100")
         ]);
 
@@ -56,15 +76,18 @@ class ProductController extends Controller
     public function create(Product $product, Attribute $attribute )
     {   
        $category = Category::all();
-       
-       $attribute = ModelsAttribute::all();
-       
-       
+    
 
+       $color = Attribute::where('name' , 'color')->get();
+       $size = Attribute::where('name' , 'size')->get();
+       
+       
+    
+    
 
     
         
-        return view('admin.product.create', compact('category', 'attribute'));
+        return view('admin.product.create', compact('category', 'color', 'size'));
     }
 
     /**
@@ -105,50 +128,32 @@ class ProductController extends Controller
 
         $form_data = $request->only('name' , 'content' , 'description', 'price' , 'discount' , 'status' , 'product_category_id' );
 
-     
+            
       
-        // dd($attrs);
-
 
 
         if($request->has('image')) {
             $file_name = $request->image->getClientOriginalName();
             $request->image->move(public_path('uploads'), $file_name);
             $form_data['image'] = $file_name;
-           
-        };
+        };         
+        $product = Product::create($form_data);
+        $product_att = $request->id_att;
 
+
+        foreach($product_att as $key =>$value) {
+            Product_Att::create([
+                'id_pro' => $product->id,
+                'id_att' =>$value
+            ]);
+        }
+
+       
+
+        
 
 
          
-        $product = Product::create($form_data);
-
-        
-
-        
-        // $attrs = $request->value;
-        // foreach($attrs as $key =>$value) {
-
-        //     ModelsAttribute::create([
-
-        //         'id' =>$product->id,
-        //         'product_id' =>$value,
-
-        //     ]);
-        //   }
-
-      
-
-        
-
-       
-
-       
-
-
-        
-
-     
         return redirect()->route('product.index');
     }
 
@@ -171,12 +176,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
 
-
     {
         $category = Category::all();
+        $color = Attribute::where('name' , 'color')->get();
+        $size = Attribute::where('name' , 'size')->get();
         // $product = Product::all();
-
-        return view('admin.product.edit' , compact('product' , 'category'));
+        $product_att = $product->pro_attribute;
+       
+        return view('admin.product.edit' , compact('product' , 'category', 'color', 'size', 'product_att'));
     }
 
     /**
@@ -188,6 +195,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
+    
         $request->validate(
             
             [  'name' =>'required|max:255|unique:products',
@@ -195,8 +204,6 @@ class ProductController extends Controller
                'description'=>'required',
                'price' =>'required|numeric|max:1000',
                'discount'=>'numeric|lte:price',
-               'image' =>'required|mimes:jpg,png,jepg',
-   
            ],
                
    
@@ -211,11 +218,31 @@ class ProductController extends Controller
                    'price.nummeric' =>'Giá sản phẩm phải là số',
                    'discount.numeric' => 'Giá khuyến mại phải là số',
                    'discount.lte' => 'Giá khuyến mại phải nhỏ hơn giá sản phẩm ban đầu',
-                   'image.required' =>'Ảnh sản phẩm không được để trống',
-                   'image.mimes' =>'Đuôi file không hợp lệ',
-   
+                  
            ]);
-   
+
+           
+           $pro_att = Product_Att::where('id_pro', $product->id )->get();
+
+           foreach($pro_att as $value) {
+                $value->delete();
+           }
+           
+           $product_att = $request->id_att; 
+           foreach($product_att as $value) {
+                Product_Att::create([
+                    'id_pro' =>$product->id,
+                    'id_att' =>$value
+                ]);
+           }
+
+
+           
+
+            
+       
+           
+
            $form_data = $request->only('name' , 'content' , 'description', 'price' , 'discount' , 'status' , 'product_category_id' );
    
          
@@ -223,10 +250,12 @@ class ProductController extends Controller
                $request->image->move(public_path('uploads'), $file_name);
                $form_data['image'] = $file_name;
 
-         
+
+
+           
            
           
-   
+           
            $product->update($form_data);
            return redirect()->route('product.index');
     }
@@ -244,5 +273,18 @@ class ProductController extends Controller
         unlink($link);
         return redirect()->back();
     }
+
+        public function deleteSelected(Request $request , Product $product)
+        {
+           $product = Product::all();
+        
+
+          $idss = $request->product_id;
+        
+
+           $idss = explode(",", $idss);
+          $product = Product::whereIn('id', $idss)->delete();
+           return redirect()->back()->with('success', 'Bạn đã xóa sản phẩm thành công');
+        }
 };
 

@@ -35,7 +35,7 @@
 
 
     <header class="page-header">
-
+    
 
 
         <nav>
@@ -216,7 +216,7 @@
 
                                                             <div class="btn-checkout">
                                                                 <div class="btn-cart">
-                                                                    <button class="btn-1">View cart</button>
+                                                                    <a href="{{route('home.cart')}}" class="btn-1">View cart</a>
                                                                 </div>
                                                                 <div class="btn-cart">
                                                                     <button class="btn-2">CheckOut</button>
@@ -230,7 +230,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <i class="fa-solid fa-user"></i>
+                                      <a style="text-decoration: none;" href="{{route('home.logout')}}">  <i class="fa-solid fa-user"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -286,6 +286,7 @@
         </nav>
 
     </header>
+    
 
 
 

@@ -124,9 +124,9 @@
 
                             <div class="detail-quantity">
                                 <div class="quantity-inner d-flex">
-                                    <a class="btn-number icon-minus" href=""><i class="fa-sharp fa-solid fa-minus"></i></a>
-                                    <input class="item-1" value="1" type="text">
-                                    <a class="btn-number1 icon-plus" href=" "><i class="fa-sharp fa-regular fa-plus"></i></a>
+                                    <button class="btn-number icon-minus" onclick="decreaseQuantity()" ><i class="fa-sharp fa-solid fa-minus"></i></button>
+                                    <input class="item-1" value="1"  id="quantity-input"   type="text">
+                                    <button class="btn-number1 icon-plus" onclick="increaseQuantity()"  href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
                                 </div>
 
                                 <button class="item-2 ">Add to cart</button>
@@ -173,7 +173,7 @@
 
             <div class="related-products">
                 <div class="name">
-                    <p>Related products</p>
+                    <p>Related products</p> 
                 </div>
                 <div class="products">
                     <div class="swiper mySwiper swiper-product">
@@ -347,7 +347,32 @@
 
 
 
+<script>
+    let quantityInput = document.querySelector("#quantity-input");
+    let quantity = parseInt(quantityInput.value);
 
+    quantityInput.addEventListener("change", function() {
+        quantity = parseInt(quantityInput.value);
+        if (isNaN(quantity)) {
+            quantity = 0;
+        }
+        updateQuantityDisplay();
+    });
+
+    function increaseQuantity() {
+        quantity += 1;
+        quantityInput.value = quantity.toString();
+    }
+
+    function decreaseQuantity() {
+        if (quantity > 0) {
+            quantity -= 1;
+            quantityInput.value = quantity.toString();
+         
+        }
+    }
+
+</script>
 
 
 @include('client.layout.footer')

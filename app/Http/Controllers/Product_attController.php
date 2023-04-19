@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attribute;
-use App\Models\Product;
+use App\Models\Product_Att;
 use Illuminate\Http\Request;
 
-class AttributeController extends Controller
+class Product_attController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        $attibute = Attribute::all();
-        
-        return view('admin.attribute.index', compact('attibute')); 
+       
     }
 
     /**
@@ -27,8 +24,7 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        $product = Product::all();
-        return view('admin.attribute.create' , compact('product'));
+        //
     }
 
     /**
@@ -38,21 +34,17 @@ class AttributeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-
-
-        $form_data = $request->only('name' , 'value' );
-        $attribute = Attribute::create($form_data);
-        
+    {
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Attribute  $attribute
+     * @param  \App\Models\Product_Att  $product_Att
      * @return \Illuminate\Http\Response
      */
-    public function show(Attribute $attribute)
+    public function show(Product_Att $product_Att)
     {
         //
     }
@@ -60,39 +52,34 @@ class AttributeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Attribute  $attribute
+     * @param  \App\Models\Product_Att  $product_Att
      * @return \Illuminate\Http\Response
      */
-    public function edit(Attribute $attribute)
+    public function edit(Product_Att $product_Att)
     {
-        return view('admin.attribute.edit' , compact('attribute'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Attribute  $attribute
+     * @param  \App\Models\Product_Att  $product_Att
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Attribute $attribute)
+    public function update(Request $request, Product_Att $product_Att)
     {
-        
-        $form_data = $request->only('name' , 'value' );
-        $attribute->update($form_data);
-        
-        return redirect()->route('attribute.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Attribute  $attribute
+     * @param  \App\Models\Product_Att  $product_Att
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Attribute $attribute)
+    public function destroy(Product_Att $product_Att)
     {
-        $attribute->delete();
-        return redirect()->back();
+        //
     }
 }

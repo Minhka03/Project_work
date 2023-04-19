@@ -6,7 +6,7 @@
 <h3 class="text-center">Danh mục sản phẩm</h3>
 <div class="category-item" style="display: flex; align-items: center; margin-top: 40px; margin-bottom: 20px;">
     <a href="{{route('category.create')}}">
-    <button class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"><span style="padding-left: 10px;">Thêm mới danh mục</span></i></button>
+    <button class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"><span style="padding-left: 10px;"></span></i>Thêm mới danh mục</button>
     </a>
     <input type="text" class="form-control" style="display: inline-block; width: 300px; margin-left: 10px;" placeholder="Tìm kiếm">
     <button class="btn btn btn-success" style="margin-left: 5px;"><i class="fa fa-search" aria-hidden="true"></i></button>

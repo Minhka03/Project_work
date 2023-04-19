@@ -81,6 +81,26 @@
 
                         </div>
 
+                        
+                        <div class="attribute">
+                            <div class="mb-3">
+                                <label for="" class="form-label" style="margin-right: 5px;">Color</label>
+                                @foreach ($color as $item )
+                                <input type="checkbox" value="{{$item->id}}" name="id_att[]" {{$product_att->contains('id', $item->id) ? 'checked' : ''}}> <span ><i class="fa-solid fa-shirt" style="color: {{$item->value}}; padding: 0 5px;"></i></span>
+                                @endforeach
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label" style="margin-right: 5px;" >Size</label>
+                                @foreach ($size as $item )
+                                <input  type="checkbox" value="{{$item->id}}" name="id_att[]" {{$product_att->contains('id', $item->id) ? 'checked' : ''}}><span  style="padding: 5px 5px; font-size: 17px;">{{$item->value}}</span>
+                                @endforeach
+
+                            </div>
+                        
+                        </div>
+
+
                        
 
                         

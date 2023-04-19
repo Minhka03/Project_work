@@ -11,6 +11,13 @@ class Attribute extends Model
 
    protected $table = 'attributes';
    protected $fillable = ['name' , 'value'];
+   
+
+    public function pro_att()
+    {
+        return $this->hasMany(Product_Att::class , 'id_att' , 'id');
+    }
+   
 
 
    

@@ -54,7 +54,7 @@
                         </div>
                         <div class="mb-3" style="margin-bottom: 10px;">
                             <label for="" class="form-label">Giảm giá</label>
-                            <input type="text" name="discount" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <input type="text" name="discount" id="" class="form-control" placeholde r="" aria-describedby="helpId">
                             @error('discount')
                             <small id="helpId" style="color: red;" class="text-muted">{{$message}}</small>
                             @enderror
@@ -75,27 +75,23 @@
                             <input type="file" name="image" id="my_img" class="form-control" placeholder="" onchange="file_image()">
                             <img src="" id="image_preview" width="120px" style="margin-top: 10px;" alt="">
                             @error('image')
-                            <small id="helpId" style="color: red;" class="text-muted">{{$message}}</small>
+                            <small id="helpId" style="color: red;"  class="text-muted">{{$message}}</small>
                             @enderror
                         </div>
 
 
                         <div class="attribute">
                             <div class="mb-3">
-                                <label for="" class="form-label">Color</label>
-                                @foreach ($attribute as $item )
-                                @if ($item->name == 'color')
-                                <input type="checkbox"   name="value[]"> {{$item->value}}
-                                @endif
+                                <label for="" class="form-label" style="margin-right: 5px;">Color</label>
+                                @foreach ($color as $item )
+                                <input type="checkbox" value="{{$item->id}}" name="id_att[]" > <span ><i class="fa-solid fa-shirt" style="color: {{$item->value}}; padding: 0 5px;"></i></span>
                                 @endforeach
 
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Size</label>
-                                @foreach ($attribute as $item )
-                                @if ($item->name == 'size')
-                                <input type="checkbox"   name="value[]"> {{$item->value}}
-                                @endif
+                                <label for="" class="form-label" style="margin-right: 5px;" >Size</label>
+                                @foreach ($size as $item )
+                                <input  type="checkbox" value="{{$item->id}}" name="id_att[]"><span  style="padding: 5px 5px; font-size: 17px;">{{$item->value}}</span>
                                 @endforeach
 
                             </div>

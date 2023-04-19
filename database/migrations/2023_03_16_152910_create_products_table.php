@@ -26,6 +26,10 @@ return new class extends Migration
             $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->timestamps();
         });
+        
+        Schema::table('products', function (Blueprint $table) {
+            $table->timestamp('deleted_at')->nullable();
+        });
     }
 
     /**
