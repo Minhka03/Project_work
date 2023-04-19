@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Account;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,30 +13,13 @@ class AdminController extends Controller
         return view('admin.account.register');
     }
 
-    public function store(Request $req , Account $account )
+    public function store(Request $req )
     {
-        // $req ->validate(
-        //     // [   'name'=>'required',
-        //     //     'email'=>'required|unique:account|email',
-        //     //     'password'=>'required|min:8',
-        //     //     'confirm_password'=>"required|same:password"
-    
-        //     // ],[
-        //     //     'name.required'=>'Tên tài khoản không được để rỗng',
-        //     //     'email.required'=>'Tên email không được để trống',
-        //     //     'email.email'=>'Không đúng định dạng email',
-        //     //     'password.required'=>'Password không được để trống',
-        //     //     'password.min'=>'Password tối thiểu 8 kí tự',
-        //     //     'confirm_password.required'=>'Confirm_password không được để trống',
-        //     //     'confirm_password.min'=>'Confirm_password tối thiểu 8 kí tự'
-        //     // ]
-        // );  
+ 
 
         $form_data = $req->only('name' ,'email' , 'confirm_password');
         $form_data['password'] = bcrypt($req->password);
 
-        // dd($form_data);
-      
         User::create($form_data);
         return redirect()->route('admin.login');
     }

@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\Images;
 use App\Models\Product;
 use App\Models\Product_Att;
+use Attribute as GlobalAttribute;
 use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use PhpParser\Node\Attribute as NodeAttribute;
 
 class ProductController extends Controller
@@ -22,12 +25,12 @@ class ProductController extends Controller
 
     {
        
-        $product = Product::orderBy('id' , 'ASC')->paginate(2);
+        $product = Product::orderBy('id' , 'ASC')->paginate(5);
 
         if($request->keyword) {
           $product = Product::Where('name', 'like', '%'.$request->keyword.'%')
                 ->orderBy('id', 'ASC')
-                ->paginate(2);
+                ->paginate(5);
         }
         
        
@@ -197,29 +200,29 @@ class ProductController extends Controller
     {
 
     
-        $request->validate(
+        // $request->validate(
             
-            [  'name' =>'required|max:255|unique:products',
-               'content' =>'required',
-               'description'=>'required',
-               'price' =>'required|numeric|max:1000',
-               'discount'=>'numeric|lte:price',
-           ],
+        //     [  'name' =>'required|max:255|unique:products',
+        //        'content' =>'required',
+        //        'description'=>'required',
+        //        'price' =>'required|numeric|max:1000',
+        //        'discount'=>'numeric|lte:price',
+        //    ],
                
    
        
-           [
-                   'name.required' =>'Tên sản phẩm không được để trống',
-                   'name.unique' =>'Tên sản phẩm đã tồn tại',
-                   'content.required' => 'Nội dung không được để trống',
-                   'description.required' =>'Nội dung không được để trống',
-                   'price.required' =>'Giá sản phẩm không được để trống',
-                   'price.max' =>'Giá sản phẩm tối thiểu là 1000 đô',
-                   'price.nummeric' =>'Giá sản phẩm phải là số',
-                   'discount.numeric' => 'Giá khuyến mại phải là số',
-                   'discount.lte' => 'Giá khuyến mại phải nhỏ hơn giá sản phẩm ban đầu',
+        //    [
+        //            'name.required' =>'Tên sản phẩm không được để trống',
+        //            'name.unique' =>'Tên sản phẩm đã tồn tại',
+        //            'content.required' => 'Nội dung không được để trống',
+        //            'description.required' =>'Nội dung không được để trống',
+        //            'price.required' =>'Giá sản phẩm không được để trống',
+        //            'price.max' =>'Giá sản phẩm tối thiểu là 1000 đô',
+        //            'price.nummeric' =>'Giá sản phẩm phải là số',
+        //            'discount.numeric' => 'Giá khuyến mại phải là số',
+        //            'discount.lte' => 'Giá khuyến mại phải nhỏ hơn giá sản phẩm ban đầu',
                   
-           ]);
+        //    ]);
 
            
            $pro_att = Product_Att::where('id_pro', $product->id )->get();
@@ -268,6 +271,20 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+
+   
+
+    $id_image = Images::where('product_id' , $product->id)->get();
+    foreach ($id_image as $key => $value) {
+        $value->delete();
+    }
+
+    $idPro_att = Product_Att::where('id_pro', $product->id)->get();
+    foreach ($idPro_att as $key => $value) {
+        $value->delete();
+    }
+
+
         $product->delete();
         $link = 'uploads'.'/'.$product->image;
         unlink($link);

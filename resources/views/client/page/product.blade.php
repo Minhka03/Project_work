@@ -153,36 +153,49 @@
 
     <div class="many-products mb-5 tab-pane fade show active " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
+
+
         <div class="row  row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-            <div class="col ">
-                <div class="card">
-                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                    <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
 
-                    <div class="product-icons">
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                            <i class="fa-regular fa-eye"></i>
-                        </a>
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
+            @foreach ($product as $pro)
+
+            <div class="col">
+                <a href="{{route('home.detail', $pro->id)}}">
+                  
+                    <div class="card">
+                        <img class="card-img-top" src="{{url('uploads')}}/{{$pro->image}}" alt="Title">
+                        @foreach ( $pro->img as $item)
+                        <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                        @endforeach
+
+                        <div class="product-icons">
+                            <a class="item-icon" href="">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                            <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                                <i class="fa-regular fa-eye"></i>
+                            </a>
+                            <a class="item-icon" href="">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">{{$pro->name}}</p>
+                            <p class="card-text">${{$pro->price}}.00</p>
+                        </div>
+                        <div class="icon-heart">
+                            <a href="">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p class="card-title">Thin Coat Lightly</p>
-                        <p class="card-text">$88.00 – $89.00</p>
-                    </div>
-                    <div class="icon-heart">
-                        <a href="">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
+                </a>
 
             </div>
-            <div class="col ">
+
+            @endforeach
+
+            <!-- <div class="col ">
                 <div class="card">
                     <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                     <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -234,87 +247,6 @@
                         </a>
                     </div>
 
-                </div>
-
-            </div>
-            <div class="col ">
-                <div class="card">
-                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
-                    <div class="card-body">
-                        <p class="card-title">Thin Coat Lightly</p>
-                        <p class="card-text">$88.00 – $89.00</p>
-                    </div>
-                    <div class="product-icons">
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                            <i class="fa-regular fa-eye"></i>
-                        </a>
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                    </div>
-                    <div class="icon-heart">
-                        <a href="">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col ">
-                <div class="card">
-                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
-                    <div class="card-body">
-                        <p class="card-title">Thin Coat Lightly</p>
-                        <p class="card-text">$88.00 – $89.00</p>
-                    </div>
-                    <div class="product-icons">
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                            <i class="fa-regular fa-eye"></i>
-                        </a>
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                    </div>
-                    <div class="icon-heart">
-                        <a href="">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col ">
-                <div class="card">
-                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
-                    <div class="card-body">
-                        <p class="card-title">Thin Coat Lightly</p>
-                        <p class="card-text">$88.00 – $89.00</p>
-                    </div>
-                    <div class="product-icons">
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                            <i class="fa-regular fa-eye"></i>
-                        </a>
-                        <a class="item-icon" href="">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                    </div>
-                    <div class="icon-heart">
-                        <a href="">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
-                    </div>
                 </div>
 
             </div>
@@ -426,7 +358,89 @@
                 </div>
 
             </div>
+            <div class="col ">
+                <div class="card">
+                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
+                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
+                    <div class="card-body">
+                        <p class="card-title">Thin Coat Lightly</p>
+                        <p class="card-text">$88.00 – $89.00</p>
+                    </div>
+                    <div class="product-icons">
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
+                    <div class="icon-heart">
+                        <a href="">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col ">
+                <div class="card">
+                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
+                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
+                    <div class="card-body">
+                        <p class="card-title">Thin Coat Lightly</p>
+                        <p class="card-text">$88.00 – $89.00</p>
+                    </div>
+                    <div class="product-icons">
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
+                    <div class="icon-heart">
+                        <a href="">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col ">
+                <div class="card">
+                    <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
+                    <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
+                    <div class="card-body">
+                        <p class="card-title">Thin Coat Lightly</p>
+                        <p class="card-text">$88.00 – $89.00</p>
+                    </div>
+                    <div class="product-icons">
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
+                    <div class="icon-heart">
+                        <a href="">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div> -->
         </div>
+
 
     </div>
 

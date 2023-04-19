@@ -48,10 +48,14 @@
                         <div class="swiper mySwiper2 detail-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-89-570x760.jpg" />
+                                    <img src="{{url('uploads')}}/{{$product->image}}" />
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-89-570x760.jpg" />
+                                    @foreach ($product->img as $item )
+                                    <img src="{{url('uploads/imgs_product')}}/{{$item->images}}" />
+                                    @endforeach
+
+
                                 </div>
                                 <div class="swiper-slide">
                                     <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-89-570x760.jpg" />
@@ -90,8 +94,8 @@
                     <div class="description">
                         <div class="item-up">
                             <div class="card-body">
-                                <h4 class="card-title">Thin Coat Lightly</h4>
-                                <p class="card-text">$88.00 – $89.00</p>
+                                <h4 class="card-title">{{$product->name}}</h4>
+                                <p class="card-text">${{$product->price}}.00</p>
                                 <p class="card-description">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur erit qui in ea voluptate</p>
                             </div>
                         </div>
@@ -102,11 +106,17 @@
                                         <p>Size</p>
                                     </div>
                                     <select class="design ms-2" id="">
-                                        <option class="" value="">S</option>
-                                        <option value="">M</option>
+
+                                        <!-- <option value="">M</option>
                                         <option value="">L</option>
                                         <option value="">XL</option>
-                                        <option value="">XXL</option>
+                                        <option value="">XXL</option> -->
+
+                                        @foreach ($product->pro_attribute as $item )
+                                        @if ($item->name == 'size')
+                                        <option class="" value="">{{$item->value}}</option>
+                                        @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="color">
@@ -114,19 +124,20 @@
                                         <p>Color</p>
                                     </div>
                                     <select class="design" name="" id="">
-                                        <option value="">Black</option>
-                                        <option value="">Red</option>
-                                        <option value="">Red</option>
-                                        <option value="">Red</option>
+                                        @foreach ($product->pro_attribute as $item )
+                                        @if ($item->name == 'color')
+                                        <option class="" value="">{{$item->value}}</option>
+                                        @endif
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
                             <div class="detail-quantity">
                                 <div class="quantity-inner d-flex">
-                                    <button class="btn-number icon-minus" onclick="decreaseQuantity()" ><i class="fa-sharp fa-solid fa-minus"></i></button>
-                                    <input class="item-1" value="1"  id="quantity-input"   type="text">
-                                    <button class="btn-number1 icon-plus" onclick="increaseQuantity()"  href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
+                                    <button class="btn-number icon-minus" onclick="decreaseQuantity()"><i class="fa-sharp fa-solid fa-minus"></i></button>
+                                    <input class="item-1" value="1" id="quantity-input" type="text">
+                                    <button class="btn-number1 icon-plus" onclick="increaseQuantity()" href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
                                 </div>
 
                                 <button class="item-2 ">Add to cart</button>
@@ -173,7 +184,7 @@
 
             <div class="related-products">
                 <div class="name">
-                    <p>Related products</p> 
+                    <p>Related products</p>
                 </div>
                 <div class="products">
                     <div class="swiper mySwiper swiper-product">
@@ -354,7 +365,7 @@
     quantityInput.addEventListener("change", function() {
         quantity = parseInt(quantityInput.value);
         if (isNaN(quantity)) {
-            quantity = 0;
+            quantity = 1;
         }
         updateQuantityDisplay();
     });
@@ -365,13 +376,12 @@
     }
 
     function decreaseQuantity() {
-        if (quantity > 0) {
+        if (quantity > 1) {
             quantity -= 1;
             quantityInput.value = quantity.toString();
-         
+
         }
     }
-
 </script>
 
 

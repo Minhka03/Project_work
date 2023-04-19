@@ -31,8 +31,8 @@ Route::get('/', function () {
 
 Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class  , 'index'])->name('home.index');
-    Route::get('/detail', [HomeController::class  , 'detail'])->name('home.detail');
-    Route::get('/product' , [HomeController::class , 'product'])->name('home.product');
+    Route::get('/detail/{product}', [HomeController::class  , 'detail'])->name('home.detail');
+    Route::get('/shop' , [HomeController::class , 'product'])->name('home.product');
     Route::get('/cart' , [HomeController::class , 'cart'])->name('home.cart')->middleware('cus');
     Route::get('/blog' , [HomeController::class , 'blog'])->name('home.blog');
     Route::get('/about' , [HomeController::class , 'about'])->name('home.about');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -16,12 +17,18 @@ class HomeController extends Controller
         return view('client.page.home');      
     }
     
-    public function detail() {
-        return view('client.page.detail'); 
+    public function detail( Product $product) {
+
+        return view('client.page.detail', compact('product'));
+        
     }
-    public function product() {
-        return view('client.page.product');
+    public function product(Product  $product) {
+
+        $product = Product::all();
+      
+        return view('client.page.product' , compact('product'));
     }
+
     public function cart() {
         return view('client.page.cart');
     }
