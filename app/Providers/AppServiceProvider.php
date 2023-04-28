@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Cart;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Pagination\Paginator as PaginationPaginator;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,14 @@ class AppServiceProvider extends ServiceProvider
     {
         PaginationPaginator::useBootstrapFour();
         PaginationPaginator::useBootstrapFive();
+
+        view()->composer("*" , function($view) {
+
+
+            $cartGlobal = Cart::all();
+            $view->with(compact('cartGlobal'));
+
+        });
     }
     
 }

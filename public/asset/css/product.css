@@ -44,7 +44,12 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 600;
+} 
+.productss .card {
+    border: none !important;
+    margin-bottom: 20px;
 }
+
 
 
 

@@ -42,9 +42,9 @@
             </div>
             <div class="row">
                 <div class=" col-xl-5 col-lg-5 col-md-5  col-sm-12">
+                    <form action="{{route('cart.add', $product->id)}}" method="post">
+                        @csrf
                     <div class="detail-img">
-
-
                         <div class="swiper mySwiper2 detail-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -105,7 +105,7 @@
                                     <div class="name">
                                         <p>Size</p>
                                     </div>
-                                    <select class="design ms-2" id="">
+                                    <select class="design ms-2" name="att[]" id="">
 
                                         <!-- <option value="">M</option>
                                         <option value="">L</option>
@@ -114,7 +114,7 @@
 
                                         @foreach ($product->pro_attribute as $item )
                                         @if ($item->name == 'size')
-                                        <option class="" value="">{{$item->value}}</option>
+                                        <option class="" name="" value="{{$item->id}}">{{$item->value}}</option>
                                         @endif
                                         @endforeach
                                     </select>
@@ -123,10 +123,10 @@
                                     <div class="name">
                                         <p>Color</p>
                                     </div>
-                                    <select class="design" name="" id="">
+                                    <select class="design" name="att[]" id="">
                                         @foreach ($product->pro_attribute as $item )
                                         @if ($item->name == 'color')
-                                        <option class="" value="">{{$item->value}}</option>
+                                        <option class="" value="{{$item->id}}">{{$item->content}}</option>
                                         @endif
                                         @endforeach
                                     </select>
@@ -135,12 +135,12 @@
 
                             <div class="detail-quantity">
                                 <div class="quantity-inner d-flex">
-                                    <button class="btn-number icon-minus" onclick="decreaseQuantity()"><i class="fa-sharp fa-solid fa-minus"></i></button>
-                                    <input class="item-1" value="1" id="quantity-input" type="text">
-                                    <button class="btn-number1 icon-plus" onclick="increaseQuantity()" href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
+                                    <button type="button" class="btn-number icon-minus" onclick="decreaseQuantity()"><i class="fa-sharp fa-solid fa-minus"></i></button>
+                                    <input class="item-1" value="1" id="quantity-input" name="quantity" type="text">
+                                    <button type="button" class="btn-number1 icon-plus" onclick="increaseQuantity()" href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
                                 </div>
-
-                                <button class="item-2 ">Add to cart</button>
+                                
+                                <button class="item-2" type="submit">Add to cart</button>
 
                             </div>
 
@@ -173,6 +173,7 @@
 
                     </div>
                 </div>
+                </form>
             </div>
 
             <div class="description-detail">

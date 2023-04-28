@@ -10,7 +10,7 @@ class Attribute extends Model
     use HasFactory;
 
    protected $table = 'attributes';
-   protected $fillable = ['name' , 'value'];
+   protected $fillable = ['name' , 'value' , 'content'];
    
 
     public function pro_att()

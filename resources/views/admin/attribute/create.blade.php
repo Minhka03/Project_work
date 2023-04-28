@@ -19,6 +19,10 @@
                 <label for="">Giá trị</label>
                 <input type="color" name="value" id="value" style="width: 500px;"  class="form-control" placeholder="" aria-describedby="helpId">
             </div>
+            <div class="mb-3" style="margin-bottom: 20px;">
+                <label for="">Content</label>
+                <input type="text" name="content" id="value" style="width: 500px;"  class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
 
         </div>
         <button class="btn btn-primary">Submit</button>

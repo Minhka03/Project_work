@@ -3,18 +3,18 @@
 
 <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-reletive" data-bs-ride="carousel">
     @if (Session::has('no'))
-            <div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {{Session::get('no')}}
-            </div>
-            @endif
-            
-            @if (Session::has('yes'))
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {{Session::get('yes')}}
-            </div>
-            @endif
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{Session::get('no')}}
+    </div>
+    @endif
+
+    @if (Session::has('yes'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{Session::get('yes')}}
+    </div>
+    @endif
 
     <div class="carousel-inner" style="height: 100vh;">
         <div class="carousel-item active " style="height: 100vh;">
@@ -54,7 +54,7 @@
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-26.jpg" alt="...">
             <div class="banner-animation">
 
-                <img  class="slide-top"  src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-24.png" alt="">
+                <img class="slide-top" src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-24.png" alt="">
             </div>
             <div class="  slide-top  text-banner">
                 <h2>spring</h2>
@@ -84,7 +84,7 @@
             <img src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-27.jpg" alt="...">
             <div class="banner-animation">
 
-                <img  class="slide-top"  src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-25.png" alt="">
+                <img class="slide-top" src="https://themes.g5plus.net/april/wp-content/uploads/revslider/slider-05/slider-25.png" alt="">
             </div>
             <div class="  slide-top  text-banner">
                 <h2>spring</h2>
@@ -93,10 +93,10 @@
             <div class="btn_banner slide-top   w-100 text-center">
                 <!-- <div class="d-flex flex-wrap "> -->
                 <div class="btn_banner_1">
-                    <a >Learn more</a>
+                    <a>Learn more</a>
                 </div>
                 <div class="btn_banner_2">
-                    <a >Shop Now</a>
+                    <a>Shop Now</a>
                 </div>
                 <!-- </div> -->
 
@@ -123,49 +123,21 @@
         </div>
         <div class="get-cate">
             <div class="row">
-                <div class="col-lg-6 col-md-6   cate-asolute">
-                    <div class="content-cate">
-                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-01.jpg" alt="">
+                @foreach ($category as $cate)
+                <div class="col-lg-6 col-md-6  cate-asolute">
+                    <a href="{{route('home.fillter_category', $cate->id)}}">
+                        <div class="content-cate">
+                            <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-01.jpg" alt="">
 
-                        <div class="cate-text">
-                            <a class="item-text" href="">#Woman</a>
-                            <p class="items">27 items</p>
+                            <div class="cate-text">
+                                <a class="item-text" href="">{{ $cate->name }}</a>
+                                <p class="items">27 items</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+                @endforeach
 
-                <div class="col-lg-6 col-md-6  cate-asolute ">
-                    <div class="content-cate">
-                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-02.jpg" alt="">
-
-                        <div class="cate-text">
-                            <a class="item-text" href="">#Woman</a>
-                            <p class="items">27 items</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6  cate-asolute ">
-                    <div class="content-cate">
-                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-03.jpg" alt="">
-
-                        <div class="cate-text">
-                            <a class="item-text" href="">#Woman</a>
-                            <p class="items">27 items</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6  cate-asolute ">
-                    <div class="content-cate design-cate">
-                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-04.jpg" alt="">
-
-                        <div class="cate-text">
-                            <a class="item-text" href="">#Woman</a>
-                            <p class="items">27 items</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
@@ -212,14 +184,15 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-4">
 
                     <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-                        <p class="product-item">Best sellers</p>
+                        <p class="product-item">New arrivals
+                        </p>
                     </a>
 
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-4 ">
 
                     <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
-                        <p class="product-item">Best sellers</p>
+                        <p class="product-item">Items sale</p>
                     </a>
 
                 </div>

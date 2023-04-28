@@ -17,6 +17,10 @@
                 <label for="">Giá trị</label>
                 <input type="{{$attribute->name == 'color' ? 'color' : 'size'}}" name="value" id="value" value="{{$attribute->value}}" style="width: 500px;"  class="form-control" placeholder="" aria-describedby="helpId">
             </div>
+            <div class="mb-3" style="margin-bottom: 20px;">
+                <label for="">Content</label>
+                <input type="text" name="value" id="value" value="{{$attribute->content}}" style="width: 500px;"  class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
 
             
         </div>

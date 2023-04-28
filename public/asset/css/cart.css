@@ -1,3 +1,6 @@
+a {
+    cursor: pointer !important;
+}
 .banner-cart {
     background-image: url(http://themes.g5plus.net/april/wp-content/uploads/2017/08/page-title-01.jpg?id=2336);
     width: 100%;
@@ -266,4 +269,135 @@
     .none {
         display: none;
     }
+}
+
+.list .remove {
+    font-size: 20px;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    line-height: 44px;
+    border: 2px solid #efefef;
+    color: #ababab ;
+}
+.list .remove:hover {
+    border: 2px solid #f76b6a;
+    color: #f76b6a ;
+}   
+.list-item {
+    
+    align-items: center;
+    padding: 35px 0px;
+}
+.list-item  .continue {
+    width: 250px;
+    padding: 10px 25px;
+    text-align: center;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 30px;
+
+}
+.list-item  .continue:hover {
+    width: 250px;
+    padding: 10px 25px;
+    text-align: center;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #333;
+    color: #fff;
+
+}
+.remove-cart {
+    align-items: center;
+    color: #ababab;
+}
+.remove-cart p{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ababab;
+    
+}
+.remove-cart:hover {
+    color: #f76b6a;
+
+}
+.remove-cart:hover p {
+    color: #f76b6a;
+}
+.item-cart {
+    justify-content: space-between;
+}
+.subtotal {
+   align-items: flex-end;
+   text-align: end;
+}
+.subtotal p{
+   margin: 0;
+   color: #999999;
+}
+.subtotal p span {
+    font-size: 25px;
+    font-weight: 600;
+    padding-left: 10px;
+    color: #000;
+}
+.div {
+    padding: 50px 0px !important;
+    text-align: end;
+}
+.check {
+    width: 250px;
+    padding: 10px 25px;
+    text-align: center;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 30px;
+    background-color: #333;
+    color: #fff;
+    
+}
+.div .check:hover {
+    width: 250px;
+    padding: 10px 25px;
+    text-align: center;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 30px;
+    background:none;
+    color: #333;
+}
+.att_size {
+    width: 100px;
+    padding: 5px;
+    margin-left: 20px;
+    border: 1px solid #ababab;
+}
+.att_color {
+    width: 100px;
+    margin-left: 10px;
+    border: 1px solid #ababab;
+    padding: 5px;
+    
+}
+.size {
+    padding-top: 10px;
+}
+.color {
+     padding-top: 10px;
+}
+.icon-cart { 
+    margin-top: 10px;
 }

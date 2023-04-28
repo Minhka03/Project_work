@@ -568,8 +568,8 @@ a {
 .btn-cart .btn-2 {
   border: 1px solid #333;
   width: 100%;
-  padding: 7px 25px;
-  font-size: 14px;
+  padding: 5px 25px;
+  font-size: 13px;
   color: #fff;
   background-color: #333;
 }
@@ -599,3 +599,15 @@ a {
 .nav-item .fa-user {
   color: #696969;
 }
+
+.scrollbar{
+  max-height: 100%;
+  overflow-x: hidden;
+  padding: 15px;
+  
+}
+.scrollbar::-webkit-scrollbar{
+  width:0.5em;
+  background-color: rgb(207, 207, 207);
+}
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -14,7 +15,11 @@ class HomeController extends Controller
 {
     public function index()  
     {
-        return view('client.page.home');      
+
+        $category = Category::all();
+
+    
+        return view('client.page.home' , compact('category'));      
     }
     
     public function detail( Product $product) {
@@ -24,11 +29,22 @@ class HomeController extends Controller
     }
     public function product(Product  $product) {
 
-        $product = Product::all();
-      
+        $product = Product::all();      
         return view('client.page.product' , compact('product'));
     }
 
+    public function fillter_Category(Category $category) 
+    {
+
+      
+        $fillter_cate = Product::where('product_category_id' , $category->id)->get();
+
+        
+
+       return view('client.page.fillter_product' , compact('fillter_cate' , 'category'));
+    }
+
+    
     public function cart() {
         return view('client.page.cart');
     }

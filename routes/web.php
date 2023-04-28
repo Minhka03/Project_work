@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImagesController;
@@ -33,10 +34,11 @@ Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class  , 'index'])->name('home.index');
     Route::get('/detail/{product}', [HomeController::class  , 'detail'])->name('home.detail');
     Route::get('/shop' , [HomeController::class , 'product'])->name('home.product');
-    Route::get('/cart' , [HomeController::class , 'cart'])->name('home.cart')->middleware('cus');
+    Route::get('/shop/{category}' , [HomeController::class , 'fillter_Category'])->name('home.fillter_category');
     Route::get('/blog' , [HomeController::class , 'blog'])->name('home.blog');
     Route::get('/about' , [HomeController::class , 'about'])->name('home.about');
     Route::get('/contact' , [HomeController::class , 'contact'])->name('home.contact');
+    
 
 
     
@@ -44,8 +46,14 @@ Route::prefix('')->group(function () {
     
 });
 
-Route::group(['prefix' => 'cart'] , function() {
-    Route::get('/view', [CartController::class, 'view'])->name('cart.view');
+Route::group(['prefix' => ''] , function() {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.view')->middleware('cus');
+    Route::post('/add_cart/{product}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/update_att/{cart_item}', [CartController::class, 'update_att'])->name('cart.update_att');
+    Route::post('/update_quantity/{cart_item}', [CartController::class, 'update_quantity'])->name('cart.update_quantity');
+    Route::get('/delete_cart/{cart_item}', [CartController::class, 'delete_cart'])->name('cart.delete');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout.view')->middleware('cus');
+    Route::post('/checkout', [CartController::class, 'order_checkout'])->name('cart.checkout')->middleware('cus');
 });
 
 Route::get('/account.april/register',[AdminController::class, 'create'])->name('admin.register');
@@ -76,3 +84,11 @@ Route::group(['prefix'=>'admin' ,'middleware'=>'auth'] , function() {
 
 
 });
+
+
+
+
+
+
+
+

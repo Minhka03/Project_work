@@ -8,6 +8,7 @@
             <td class="text-center align-middle" >Id</td>
             <td class="text-center align-middle">Name</td>
             <td class="text-center align-middle">Attribute</td>
+            <td class="text-center align-middle">Content</td>
             <td class="text-center align-middle">Action</td>
         </tr>
         @foreach ($attibute as $item)
@@ -15,6 +16,7 @@
             <td class="text-center align-middle">{{$item->id}}</td>
             <td class="text-center align-middle">{{$item->name}}</td>
             <td class="text-center align-middle">{{$item->value}}</td>
+            <td class="text-center align-middle">{{$item->content}}</td>
             <td class="text-center align-middle">
                 <form action="{{route('attribute.destroy', $item->id)}}" method="post">
                     @csrf @method('delete')

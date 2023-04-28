@@ -64,8 +64,6 @@ class ProductController extends Controller
 
         $ids = $request->product_id;
 
-    
-
         $ids = explode(",", $ids);
         Product::whereIn('id', $ids )->update([
             'discount' => DB::raw(" price * $discount / 100")
@@ -141,6 +139,7 @@ class ProductController extends Controller
             $form_data['image'] = $file_name;
         };         
         $product = Product::create($form_data);
+
         $product_att = $request->id_att;
 
 
@@ -225,7 +224,7 @@ class ProductController extends Controller
         //    ]);
 
            
-           $pro_att = Product_Att::where('id_pro', $product->id )->get();
+           $pro_att = Product_Att::where('id_pro', $product->id)->get();
 
            foreach($pro_att as $value) {
                 $value->delete();

@@ -152,15 +152,15 @@
     </div>
         <div class="row  row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 productss">
 
-            @foreach ($product as $pro)
+            @foreach ($fillter_cate as $item)
 
             <div class="col">
-                <a href="{{route('home.detail', $pro->id)}}">
+                <a href="">
 
                     <div class="card">
-                        <img class="card-img-top" src="{{url('uploads')}}/{{$pro->image}}" alt="Title">
-                        @foreach ( $pro->img as $item)
-                        <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                        <img class="card-img-top" src="{{url('uploads')}}/{{$item->image}}" alt="Title">
+                        @foreach ( $item->img as $value)
+                        <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $value->images }}" alt="Title">
                         @endforeach
 
                         <div class="product-icons">
@@ -175,8 +175,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <p class="card-title">{{$pro->name}}</p>
-                            <p class="card-text">${{$pro->price}}.00</p>
+                            <p class="card-title">{{$item->name}}</p>
+                            <p class="card-text">${{$item->price}}.00</p>
                         </div>
                         <div class="icon-heart">
                             <a href="">

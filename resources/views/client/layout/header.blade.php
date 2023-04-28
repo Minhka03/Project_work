@@ -35,9 +35,6 @@
 
 
     <header class="page-header">
-    
-
-
         <nav>
 
             <div class="trigger-menu-wrapper">
@@ -165,32 +162,41 @@
 
                                     </li>
                                     <li class="nav-item">
-                                        <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                                        <i class="fa-sharp fa-solid fa-cart-shopping position-relative">
+                                            <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-primary">
+                                                {{count($cartGlobal)}}
+                                            </span>
+                                        </i>
                                         <ul class="cart">
                                             <div class="menu-cart-con">
-                                                <div class="cart-header d-flex">
-
+                                                <div class="cart-header d-flex">    
                                                     <div class="container">
-                                                        <div class="description-cart">
-                                                            <div class="a">
+                                                        <div class="description-cart scrollbar">
+                                                            @foreach ($cartGlobal as $item )
+                                                            <div class="a ">
                                                                 <div class="row">
                                                                     <div class="col-lg-4">
                                                                         <div class="cart-img">
-                                                                            <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-181-405x510.jpg" alt="">
+                                                                            <img src="{{url('/uploads')}}/{{$item->image}}" alt="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-8">
                                                                         <div class="cart-title">
-                                                                            <p> Thin Coat Lightly - Gray </p>
+                                                                            <p> {{$item->name}} </p>
                                                                             <p class="remove"><i class="fa-solid fa-trash"></i></p>
-                                                                            <p>89.00$ </p>
+                                                                            <p>{{$item->price}}.00$ x {{$item->quantity}} </p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            @endforeach
                                                             
 
-                                                            <div class="a">
+                                                            
+
+
+
+                                                            <!-- <div class="a">
                                                                 <div class="row">
                                                                     <div class="col-lg-4">
                                                                         <div class="cart-img">
@@ -205,7 +211,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="cart-header-subtotal d-flex">
                                                                 <p>Subtoltal:</p>
                                                                 <p>124.00$</p>
@@ -216,7 +222,7 @@
 
                                                             <div class="btn-checkout">
                                                                 <div class="btn-cart">
-                                                                    <a href="{{route('home.cart')}}" class="btn-1">View cart</a>
+                                                                    <a href="{{route('cart.view')}}" class="btn-1">View cart</a>
                                                                 </div>
                                                                 <div class="btn-cart">
                                                                     <button class="btn-2">CheckOut</button>
@@ -230,7 +236,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                      <a style="text-decoration: none;" href="{{route('home.logout')}}">  <i class="fa-solid fa-user"></i></a>
+                                        <a style="text-decoration: none;" href="{{route('home.logout')}}"> <i class="fa-solid fa-user"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -285,9 +291,22 @@
             </div>
         </nav>
 
-    </header>
-    
+        
 
+    </header>
+
+<script>
+
+document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
+  el.addEventListener('shown.bs.tab', () => {
+    const target = el.getAttribute('data-bs-target')
+    const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
+    bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
+  })
+})
+
+
+</script>
 
 
     <script>

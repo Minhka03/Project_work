@@ -41,7 +41,7 @@ class AttributeController extends Controller
     {   
 
 
-        $form_data = $request->only('name' , 'value' );
+        $form_data = $request->only('name' , 'value' , 'content' );
         $attribute = Attribute::create($form_data);
         
     }
@@ -78,7 +78,7 @@ class AttributeController extends Controller
     public function update(Request $request, Attribute $attribute)
     {
         
-        $form_data = $request->only('name' , 'value' );
+        $form_data = $request->only('name' , 'value' , 'content' );
         $attribute->update($form_data);
         
         return redirect()->route('attribute.index');

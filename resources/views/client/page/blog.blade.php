@@ -255,4 +255,11 @@
 
 
 
+
 @include('client.layout.footer')
+
+           
+
+
+
+
