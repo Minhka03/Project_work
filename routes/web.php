@@ -78,7 +78,6 @@ Route::group(['prefix'=>'admin' ,'middleware'=>'auth'] , function() {
 
     
     Route::post('add_sale' , [ProductController::class , 'createSale'])->name('product.sale');
-    Route::delete('/products' , [ProductController::class , 'deleteSelected'])->name('product.delete');
 
   
 

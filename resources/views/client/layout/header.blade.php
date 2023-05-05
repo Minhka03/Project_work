@@ -164,15 +164,26 @@
                                     <li class="nav-item">
                                         <i class="fa-sharp fa-solid fa-cart-shopping position-relative">
                                             <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-primary">
-                                                {{count($cartGlobal)}}
+                                                {{$cartTotal}}
                                             </span>
                                         </i>
                                         <ul class="cart">
                                             <div class="menu-cart-con">
-                                                <div class="cart-header d-flex">    
+                                                <div class="cart-header d-flex">
                                                     <div class="container">
                                                         <div class="description-cart scrollbar">
-                                                            @foreach ($cartGlobal as $item )
+
+                                                            <?php
+
+                                                            $CartPrice  = 0;
+
+                                                            ?>
+                                                            @foreach ($cartGlobal as $item)
+
+                                                            <?php
+                                                            $CartPrice += $item->totalPrice;
+                                                            ?>
+
                                                             <div class="a ">
                                                                 <div class="row">
                                                                     <div class="col-lg-4">
@@ -190,9 +201,9 @@
                                                                 </div>
                                                             </div>
                                                             @endforeach
-                                                            
 
-                                                            
+
+
 
 
 
@@ -213,8 +224,8 @@
                                                                 </div>
                                                             </div> -->
                                                             <div class="cart-header-subtotal d-flex">
-                                                                <p>Subtoltal:</p>
-                                                                <p>124.00$</p>
+                                                                <p>Subtoltal: </p>
+                                                                <p>{{$CartPrice}}.00$</p>
                                                             </div>
                                                             <div class="cart-con-boder">
 
@@ -225,7 +236,7 @@
                                                                     <a href="{{route('cart.view')}}" class="btn-1">View cart</a>
                                                                 </div>
                                                                 <div class="btn-cart">
-                                                                    <button class="btn-2">CheckOut</button>
+                                                                    <a href="{{route('checkout.view')}}" class="btn-2">CheckOut</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -241,6 +252,9 @@
                                 </ul>
                             </div>
                         </div>
+
+
+
 
                     </div>
 
@@ -291,22 +305,18 @@
             </div>
         </nav>
 
-        
 
     </header>
 
-<script>
-
-document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
-  el.addEventListener('shown.bs.tab', () => {
-    const target = el.getAttribute('data-bs-target')
-    const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
-    bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
-  })
-})
-
-
-</script>
+    <script>
+        document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
+            el.addEventListener('shown.bs.tab', () => {
+                const target = el.getAttribute('data-bs-target')
+                const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
+                bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
+            })
+        })
+    </script>
 
 
     <script>

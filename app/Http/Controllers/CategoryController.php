@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -48,6 +49,12 @@ class CategoryController extends Controller
                 'name.required' =>'Tên không được để trống',
                 'name.unique' => 'Tên này đã tồn tại'
             ]);
+
+            $file_name = $request->image->getClientOriginalName();
+
+            $request->image->move(public_path('uploads/category') , $file_name);
+            $form_data['image'] = $file_name;
+
          Category::create($form_data);
 
          return redirect()->route('category.index');
@@ -93,7 +100,9 @@ class CategoryController extends Controller
         $request->validate(
             [
 
-            'name' => 'required|unique:product_categories|max:255',
+            'name' => 'required' ,
+            'unique:product_categories'.$category->id,
+            'max:255',
             ],
          
          
@@ -103,9 +112,15 @@ class CategoryController extends Controller
             ]);
             $form_data = $request->only('name' ,'status');
 
+            $file_name = $request->image->getClientOriginalName();
+
+            $request->image->move(public_path('uploads/category') , $file_name);
+            $form_data['image'] = $file_name;
+
+
                 $category->update($form_data);
 
-                return redirect()->route('category.index');
+                return redirect()->route('category.index')->with('yes' , 'Sửa danh mục sản phẩm thành công');
            
 
     }
@@ -118,7 +133,20 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-       $category->delete();
-       return redirect()->route('category.index');
+
+        try {
+            $count = Product::where('product_category_id', $category->id)->count();
+            
+            if($count > 0){
+                return redirect()->back()->with('no', 'Danh mục đang có sản phẩm không thể xóa');
+            }
+            $category->delete();
+
+            return redirect()->route('category.index')->with('yes', 'Xóa thành công');
+        } catch (\Throwable $th) {  
+            return redirect()->back()->with('no', 'Delete Failed');
+        }
+
+       
     }
 }

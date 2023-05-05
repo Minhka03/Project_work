@@ -19,7 +19,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $cart = Cart::all();
+        $cart = Cart::where('id_cus', Auth::guard('cus')->user()->id)->get();
         return view('client.page.cart', compact('cart'));
     }
     public function add(Product $product, Request $req)
@@ -54,9 +54,11 @@ class CartController extends Controller
                             'image' => $product->image,
                             'price' => $product->price,
                             'quantity' => $req->quantity,
+                            'totalPrice'=>$product->price * $req->quantity,
                             'id_pro' => $product->id,
                             'id_cus' => Auth::guard('cus')->user()->id,
                         ]);
+
 
                         $cart_item = $req->att;
                         foreach ($cart_item as $key => $value) {
@@ -76,11 +78,10 @@ class CartController extends Controller
                 'image' => $product->image,
                 'price' => $product->price,
                 'quantity' => $req->quantity,
+                'totalPrice'=>$product->price * $req->quantity,
                 'id_pro' => $product->id,
                 'id_cus' => Auth::guard('cus')->user()->id,
             ]);
-
-
             $cart_item = $req->att;
             foreach ($cart_item as $key => $value) {
 
@@ -114,18 +115,23 @@ class CartController extends Controller
                 'id_att' => $value
             ]);
         }
-
         return redirect()->back();
     }
 
 
     public function update_quantity(Request $request , Cart $cart_item)
     {
-
+        
        
         $cart_item->quantity = $request->quantity;
         $cart_item->save();     
-   return redirect()->back();
+     
+
+        $cart_item->totalPrice = $request->quantity * $cart_item->price;
+        // dd($cart_item->totalPrice);
+        $cart_item->save();
+
+        return redirect()->back();
     }
 
 
@@ -139,6 +145,8 @@ class CartController extends Controller
        }
 
        $cart_item->delete();
+
+       return redirect()->back();
     }
 
 

@@ -3,21 +3,23 @@
 @section('main')
 
 <div class="container">
+
     <div class="table-responsive">
         <table class="table table-dark table-striped table-bordered ">
 
-            <tr class="">
-                <td class="text-center align-middle">Id</td>
-                <td class="text-center align-middle">Tên</td>
-                <td class="text-center align-middle">Danh mục</td>
-                <td class="text-center align-middle">Giá / Giảm giá</td>
-                <td class="text-center align-middle">Trạng thái</td>
-                <td class="text-center align-middle">Màu</td>
-                <td class="text-center align-middle">Size</td>
-                <td class="text-center align-middle">Ảnh sản phẩm</td>
-                <td class="text-center align-middle">
-                </td>
-            </tr>
+        <tr class="">
+            <td class="text-center align-middle">Id</td>
+            <td class="text-center align-middle">Tên</td>
+            <td class="text-center align-middle">Danh mục</td>
+            <td class="text-center align-middle">Giá / Giảm giá</td>
+            <td class="text-center align-middle">Trạng thái</td>
+            <td>Màu</td>
+            <td>Kích thước</td>
+            <td class="text-center align-middle">Ảnh sản phẩm</td>
+            <td class="text-center align-middle">Action
+            </td>
+            <td></td>
+        </tr>
 
             <tr>
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->id}}</td>
@@ -25,7 +27,24 @@
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->cate->name}}</td>
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->price}}/<span>{{$product->discount}}</span></td>
                 <td class="text-center align-middle" style="vertical-align: middle;">{{$product->status == 1 ? 'In Stock' : 'Out Stock'}}</td>
-              
+                <td class="text-center align-middle" style="vertical-align: middle; "  >
+                    @foreach ($product->pro_attribute as $item )
+                        @if ($item->name == 'color')
+                        <span style="color: {{$item->content}}; padding: 0 5px;"><i class="fa-solid fa-shirt"></i></span>
+                        @endif
+                    @endforeach
+                </td>
+                <td class="text-center align-middle" style="vertical-align: middle; "  >
+                    @foreach ($product->pro_attribute as $item )
+                        @if ($item->name == 'size')
+                        <span >{{$item->value}}</span>
+                        @endif
+                    @endforeach
+                </td>
+           
+
+          
+            
                 <td class="text-center align-middle" style="vertical-align: middle;">
                     <img src="/uploads/{{$product->image}}" width="100px" alt="">
                 </td>
@@ -34,7 +53,7 @@
                     <form action="{{route('product.destroy', $product->id)}}" method="post">
                         @csrf @method('DELETE')
                         <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+                        <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href="{{route('product_img.create')}}" class="btn btn-primary">Thêm ảnh</i></a>
                     </form>
 

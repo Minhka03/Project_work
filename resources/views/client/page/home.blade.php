@@ -124,10 +124,12 @@
         <div class="get-cate">
             <div class="row">
                 @foreach ($category as $cate)
+
+                @if ($cate->status == '1')
                 <div class="col-lg-6 col-md-6  cate-asolute">
                     <a href="{{route('home.fillter_category', $cate->id)}}">
                         <div class="content-cate">
-                            <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-01.jpg" alt="">
+                            <img src="uploads/category/{{$cate->image}}" alt="">
 
                             <div class="cate-text">
                                 <a class="item-text" href="">{{ $cate->name }}</a>
@@ -136,6 +138,19 @@
                         </div>
                     </a>
                 </div>
+                @else
+                <div class="col-lg-6 col-md-6  cate-asolute ">
+                    <div class="content-cate design-cate">
+                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-04.jpg" alt="">
+
+                        <div class="cate-text">
+                            <a class="item-text" href="">#Woman</a>
+                            <p class="items">27 items</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
                 @endforeach
 
             </div>
@@ -1162,6 +1177,12 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
     <div class="goto-blog">
         <a href="">
             <p>Go to blog</p>

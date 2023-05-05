@@ -73,7 +73,7 @@ class HomeController extends Controller
 
         Customer::create($form_data);
 
-        return redirect()->route('client.form.login');
+        return redirect()->route('home.login');
     }
     public function login()
     {

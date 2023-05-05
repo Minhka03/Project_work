@@ -107,10 +107,7 @@
                                     </div>
                                     <select class="design ms-2" name="att[]" id="">
 
-                                        <!-- <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option> -->
+                                      
 
                                         @foreach ($product->pro_attribute as $item )
                                         @if ($item->name == 'size')

@@ -12,8 +12,13 @@
     <form action="{{route('product_img.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3" style="margin-bottom: 10px;">
-        <label for="">Id</label>
-            <input type="number" name="product_id"  class="form-control" style="width: 100px;">
+        <label for="">Tên sản phẩm</label>
+            <select name="name" id="" class="form-control"  style="width: 500px;" >
+              @foreach ($product as $pro )
+              <option value="{{$pro->id}}">{{$pro->name}}</option>
+            
+              @endforeach
+            </select>
         </div>
         <div class="mb-3" style="margin-bottom: 10px;">
             <label for="" class="form-label">Thêm nhiều ảnh vào sản phẩm</label>

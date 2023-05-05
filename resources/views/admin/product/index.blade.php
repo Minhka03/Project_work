@@ -3,6 +3,20 @@
 
 @section('main')
 <h3 class="text-center">Sản phẩm</h3>
+
+@if (Session::has('no'))
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    {{Session::get('no')}}
+</div>
+@endif
+
+@if (Session::has('yes'))
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    {{Session::get('yes')}}
+</div>
+@endif
 <div class="category-item" style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; margin-bottom: 20px;">
     <div style="display: flex; align-items: center;">
         <a href="{{route('product.create')}}">
@@ -19,7 +33,8 @@
         @csrf
         <input type="text" class="form-control" name="discount" style="display: inline-block; width: 300px; margin-left: 10px;" placeholder="Mã giảm giá">
         <button href="" style="margin-left: 10px;" class="btn btn-info">Coupons</button>
-        
+        <input type="hidden" id="checked" name="product_id">
+
     </form>
 </div>
 <div class="table-responsive">
@@ -71,17 +86,46 @@
 
 
 
-                <img src="/uploads/{{$pro->image}}" width="100px" alt="">
+                <img src="/uploads/{{$pro->image}}" name="image" width="100px" alt="">
             </td>
 
 
             <td class="text-center align-middle" style="vertical-align: middle;">
-                <form action="{{route('product.destroy', $pro->id)}}" method="post">
-                    @csrf @method('DELETE')
-                    <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa không')"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    <a href="{{route('product.edit', $pro->id)}}" class="btn btn-primary"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+            
+                    <a href="{{route('product.edit', $pro->id)}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                     <a href="{{route('product.show', $pro->id)}}" class="btn btn-primary">Xem</i></a>
-                </form>
+                    <a data-toggle="modal" id="smallButton" data-target="#delete{{$pro->id}}" data-attr="" href="" title="Delete category" class="btn btn-danger">
+                    <i class="fa fa-trash "></i>
+                </a>
+
+                <div class="modal fade" id="delete{{$pro->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="smallBody">
+                                <div>
+                                    <!-- the result to be displayed apply here -->
+
+                                    <form action="{{ route('product.destroy', $pro->id) }}" method="post">
+                                        <div class="modal-body">
+                                            @csrf @method('DELETE')
+                                            <h5>Are you sure ???</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-danger">Yes, Delete Category</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </td>
             <td class="text-center align-middle" style="vertical-align: middle;">
@@ -98,24 +142,11 @@
 
     </table>
 
-
-
-   
-
-
-     <form method="POST" action="{{route('product.delete')}}" moethod="POST">
-        @csrf
-        @method('DELETE')
-
-        <input type="hidden" id="checked" name="product_id">
-        <button class="btn btn-danger" type="submit">Xóa sản phẩm đã chọn</button>
-    </form>
-
     <nav class="page-navigation">
         {{$product->links()}}
     </nav>
 
-   
+
 
 
 </div>
@@ -161,25 +192,17 @@
         document.getElementById('checked').value = check;
     }
 
-    // let check1 = [];
 
-    // function check_Coupons(e) {
-    //     let id = e.value
-    //     console.log(id);
-
-
-    //     if (check1.includes(id)) {
-    //         let data = check1.filter((data) => data != id);
-    //         console.log(data);
-    //         check = data;
-
-    //     } else {
-    //         check.push(id);
-    //         console.log(check1);
-    //     }
-
-    //     document.getElementById('checked1').value = check;
-    // }
+    //   image 
+    function file_image() {
+        var file = document.getElementById('my_img').files[0]
+        var fr = new FileReader()
+        fr.readAsDataURL(file)
+        fr.onload = function(e) {
+            var img = document.getElementById('image_preview');
+            img.src = this.result;
+        }
+    }
 </script>
 
 

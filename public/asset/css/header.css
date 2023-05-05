@@ -69,6 +69,8 @@ header {
   position: relative;
   font-family: sans-serif;
   letter-spacing: 0.1em;
+  width: 100%;
+  padding: 10px 25px;
 }
 .nav-item .fa-solid {
   color: #333;
@@ -556,6 +558,10 @@ a {
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 30px;
+  align-items: center;
+}
+.btn-cart {
+  padding: 0 5px;
 }
 .btn-cart .btn-1 {
   border: 1px solid #333;
@@ -563,6 +569,8 @@ a {
   padding: 7px 25px;
   font-size: 14px;
   color: #333;
+
+  text-transform: uppercase;
   
 }
 .btn-cart .btn-2 {
@@ -572,6 +580,9 @@ a {
   font-size: 13px;
   color: #fff;
   background-color: #333;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .btn-1:hover {
@@ -586,6 +597,9 @@ a {
   border-bottom: 1px solid #efefef;
   padding-top: 20px;
   padding-bottom: 20px;
+} 
+.description-cart {
+  margin: 0 !important;
 } 
 .cart-title .fa-trash {
   color: #696969;

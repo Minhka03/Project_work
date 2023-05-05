@@ -43,6 +43,8 @@ class AttributeController extends Controller
 
         $form_data = $request->only('name' , 'value' , 'content' );
         $attribute = Attribute::create($form_data);
+
+        return redirect()->back();
         
     }
 
