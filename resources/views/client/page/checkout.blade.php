@@ -17,6 +17,20 @@
 
 <body>
 
+  @if (Session::has('no'))
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    {{Session::get('no')}}
+  </div>
+  @endif
+
+  @if (Session::has('yes'))
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    {{Session::get('yes')}}
+  </div>
+  @endif
+
 
 
 
@@ -221,7 +235,7 @@
             </div>
           </div>
 
-          <div class="item-3">
+          <div class="item-3">  
             <div class="row">
               <div class="col-lg-6">
                 <p>Tong cong</p>
@@ -236,7 +250,7 @@
                 <a href=""> <i class="fa-solid fa-arrow-left"></i> Quay ve gio hang</a>
               </div>
               <div class="col-lg-6">
-                <button class="btn-coupon">Đặt hàng</button>
+                <a href="" class="btn-coupon">Đặt hàng</a>
               </div>
             </div>
           </div>

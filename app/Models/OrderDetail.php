@@ -10,4 +10,11 @@ class OrderDetail extends Model
     use HasFactory;
 
     protected $fillable = ['product_id'	, 'order_id' ,	'quantity' , 'price'];
+
+    public function prod()
+    {
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
+
+    
 }

@@ -38,11 +38,8 @@ Route::prefix('')->group(function () {
     Route::get('/blog' , [HomeController::class , 'blog'])->name('home.blog');
     Route::get('/about' , [HomeController::class , 'about'])->name('home.about');
     Route::get('/contact' , [HomeController::class , 'contact'])->name('home.contact');
-    
-
-
-    
     Route::get('/logout' , [HomeController::class , 'logout'])->name('home.logout');
+   
     
 });
 
@@ -54,6 +51,7 @@ Route::group(['prefix' => ''] , function() {
     Route::get('/delete_cart/{cart_item}', [CartController::class, 'delete_cart'])->name('cart.delete');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout.view')->middleware('cus');
     Route::post('/checkout', [CartController::class, 'order_checkout'])->name('cart.checkout')->middleware('cus');
+    Route::get('/verify-order/{token}' , [CartController::class , 'verifyOrder'])->name('cart.verify_order');
 });
 
 Route::get('/account.april/register',[AdminController::class, 'create'])->name('admin.register');

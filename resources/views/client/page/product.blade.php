@@ -1,5 +1,9 @@
 @include('client.layout.header')
 
+
+
+
+
 <div class="banner-product card-img">
     <div class="title">
         <h1 class="title-name"></h1>
@@ -30,57 +34,88 @@
                         <h5>Fillter</h5>
                         <div class="price">
                             <p>Price</p>
-                            <div class="check-price">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        0.00$ - 20.00$
-                                    </label>
+
+
+                            <form action="{{route('home.product')}}" method="get">
+
+                                <div class="check-price">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="min_price1" type="checkbox" value="1">
+                                        <input type="hidden" name="max_price1" value="20">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            0.00$ - 20.00$
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="min_price2" type="checkbox" value="20" id="flexCheckChecked">
+                                        <input type="hidden" name="max_price2" value="50">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            20.00$ - 50.00$
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="min_price3" type="checkbox" value="50" id="flexCheckChecked">
+                                        <input type="hidden" name="max_price3" value="100">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            50.00$ - 100.00$
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        20.00$ - 50.00$
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        50.00$ - 100.00$
-                                    </label>
-                                </div>
-                            </div>
+                                <button type="submit" class="btn btn-primary">Fillter</button>
+
+
+
+
+
+
+
+                            </form>
+
                         </div>
 
                         <div class="size-list">
                             <p>Size</p>
-                            <div class="check-size ms-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        S
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        M
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        XL
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        XXL
-                                    </label>
+                            <form action="{{route('home.product')}}" method="get">
+
+                                <div class="check-size ms-3">
+
+
+                                    @foreach ($sizes as $item)
+                                    <a href="">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="size" value="{{$item->id}}" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                {{$item->value}}
+                                            </label>
+                                        </div>
+                                    </a>
+                                    @endforeach
+
+
+                                    <!-- <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            XXL
+                                        </label>
+                                    </div> -->
+
                                 </div>
 
-                            </div>
+                                <button type="submit" class="btn btn-primary">Fillter</button>
+                            </form>
                         </div>
 
                         <div class="color-list">
@@ -88,18 +123,24 @@
                             <div class="check-color">
 
 
-                                <form action="">
+                                <form action="{{route('home.product')}}" method="get">
                                     <div class="form-check">
+
+                                        @foreach ($colors as $item)
                                         <div class="1 p-2">
-                                            <input class="black" type="checkbox"></input>
+                                            <input class="blue" name="color" value="{{$item->id}}" type="checkbox"></input>
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Black
+                                                {{$item->content}}
                                             </label>
                                         </div>
-                                        <div class="2  p-2">
+
+                                        @endforeach
+
+
+                                        <!-- <div class="2  p-2">
                                             <input class="red" type="checkbox"></input>
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Red
+                                                
                                             </label>
                                         </div>
                                         <div class="3  p-2">
@@ -119,17 +160,17 @@
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Green
                                             </label>
-                                        </div>
+                                        </div> -->
 
                                     </div>
-
+                                    <button type="submit" class="btn btn-primary">Fillter</button>
                                 </form>
                             </div>
                         </div>
 
                     </div>
 
-                    <form class="search-container" action="//llamaswill.tumblr.com/search">
+                    <form class="search-container" action="/llamaswill.tumblr.com/search">
                         <input id="search-box" type="text" class="search-box" name="q" />
                         <label for="search-box"><span><i class="fa-solid fa-magnifying-glass glyphicon glyphicon-search search-icon"></i></span></label>
                         <input type="submit" id="search-submit" />
@@ -137,60 +178,72 @@
                 </div>
 
                 <div class="fillter-option">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Featured</option>
-                        <option value="1">Best selling </option>
-                        <option value="2">Alphabetically, A-Z</option>
-                        <option value="3">Alphabetically, Z-A</option>
-                        <option value="4">Price, low to high</option>
-                        <option value="4">Price, high to low</option>
-                    </select>
+                    <form action="{{route('home.product')}}" class="d-flex">
+                        <select class="form-select" name="sort" aria-label="Default select example">
+                            <option value="asc">Alphabetically, A-Z</option>
+                            <option value="desc">Alphabetically, Z-A</option>
+                            <option value="lowToHigh">Price, low to high</option>
+                            <option value="HighToLow">Price, high to low</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-info">Fillter</button>
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
-        <div class="row  row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 productss">
+    <div class="row  row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 productss">
 
-            @foreach ($product as $pro)
+        @foreach ($product as $pro)
 
-            <div class="col">
-                <a href="{{route('home.detail', $pro->id)}}">
+        <div class="col">
+            <a href="{{route('home.detail', $pro->id)}}">
 
-                    <div class="card">
-                        <img class="card-img-top" src="{{url('uploads')}}/{{$pro->image}}" alt="Title">
-                        @foreach ( $pro->img as $item)
-                        <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
-                        @endforeach
+                <div class="card">
+                    <img class="card-img-top" src="{{url('uploads')}}/{{$pro->image}}" alt="Title">
+                    @foreach ( $pro->img as $item)
+                    <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                    @endforeach
 
-                        <div class="product-icons">
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
-                            <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-title">{{$pro->name}}</p>
-                            <p class="card-text">${{$pro->price}}.00</p>
-                        </div>
-                        <div class="icon-heart">
-                            <a href="">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
+                    <div class="product-icons">
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a class="item-icon" href="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
                     </div>
-                </a>
+                    <div class="card-body">
+                        <p class="card-title">{{$pro->name}}</p>
 
-            </div>
+                        @if ($pro->discount != null)
+                        <p class="card-text"> <span><del class="pe-3" style="color: #ababab; font-weight: normal;">${{$pro->price}}.00</del></span>${{$pro->discount}}.00</p>
+                        @else
+                        <p class="card-text">${{$pro->price}}.00</p>
+                        @endif
+                    </div>
+                    <div class="icon-heart">
+                        <a href="">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                    </div>
+                    @if ($pro->discount != null)
+                    <span class="on-sale product-flash">
+                        Sale
+                    </span>
+                    @endif
+                </div>
+            </a>
 
-            @endforeach
+        </div>
 
-             <!-- <div class="col">
+        @endforeach
+
+        <!-- <div class="col">
                 <div class="card">
                     <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                     <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -461,7 +514,7 @@
                 </div>
 
             </div> -->
-        </div>
+    </div>
     <button class="loading">Load More</button>
 </div>
 
@@ -472,6 +525,6 @@
 
 
 
+
+
 @include('client.layout.footer')
-
-

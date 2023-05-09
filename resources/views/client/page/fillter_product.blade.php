@@ -155,7 +155,7 @@
             @foreach ($fillter_cate as $item)
 
             <div class="col">
-                <a href="">
+                <a href="{{route('home.detail', $item->id)}}">
 
                     <div class="card">
                         <img class="card-img-top" src="{{url('uploads')}}/{{$item->image}}" alt="Title">

@@ -165,7 +165,7 @@ class CartController extends Controller
 
        $order = Order::create($form_data);
 
-       $cart = Cart::all();
+       $cart = Cart::where('id_cus', Auth::guard('cus')->user()->id)->get();
 
         
       foreach($cart as $items) {
@@ -183,13 +183,20 @@ class CartController extends Controller
       $token = Str::random(50);
       $order ->update(['token' => $token]);
       Mail::to($email)->send(new OrderMail($order , $token));
+
+     
       
     }
 
     public function verifyOrder($token)
+    
     {
         $order = Order::where('token' , $token)->firstOrFail();
-        $order ->update(['token' =>null , 'status' =>1]);
+        $order ->update(['token' =>null]);
+        $order->status = 1; 
+        $order->save();
+
+        return redirect()->route('home.index')->with('yes', 'Bạn đã đặt hàng thành công');
 
 
 

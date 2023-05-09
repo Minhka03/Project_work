@@ -49,8 +49,10 @@ class AppServiceProvider extends ServiceProvider
             else {
                 $cartGlobal = [];
                 $check = 0;
+                $cartTotal = 0;
+                
                
-                $view->with(compact('cartGlobal', 'check'));
+                $view->with(compact('cartGlobal', 'check', 'cartTotal'));
             }
 
            

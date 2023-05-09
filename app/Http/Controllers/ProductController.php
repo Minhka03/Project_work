@@ -156,7 +156,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('yes' , 'Bạn thêm mới sản phẩm thành công');
     }
 
     /**
@@ -259,7 +259,7 @@ class ProductController extends Controller
 
 
         $product->update($form_data);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('yes' , 'Bạn thêm mới sản phẩm thành công'); 
     }
 
     /**

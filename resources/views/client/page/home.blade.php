@@ -34,7 +34,7 @@
                     <a>Learn more</a>
                 </div>
                 <div class="btn_banner_2">
-                    <a>Shop Now</a>
+                    <a href="{{route('home.product')}}">Shop Now</a>
                 </div>
                 <!-- </div> -->
 
@@ -132,23 +132,26 @@
                             <img src="uploads/category/{{$cate->image}}" alt="">
 
                             <div class="cate-text">
-                                <a class="item-text" href="">{{ $cate->name }}</a>
-                                <p class="items">27 items</p>
+                                <a class="item-text" href="">#{{ $cate->name }}</a>
+                                <p class="items">{{$cate->product_cate->count()}}item</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 @else
-                <div class="col-lg-6 col-md-6  cate-asolute ">
-                    <div class="content-cate design-cate">
-                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-04.jpg" alt="">
 
-                        <div class="cate-text">
-                            <a class="item-text" href="">#Woman</a>
-                            <p class="items">27 items</p>
+                <div class="col-lg-6 col-md-6  cate-asolute ">
+                    <a href="{{route('home.fillter_category', $cate->id)}}">
+                        <div class="content-cate design-cate">
+                            <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-04.jpg" alt="">
+                            <div class="cate-text">
+                                <a class="item-text" href="">#{{$cate->name}}</a>
+                                <p class="items">{{$cate->product_cate->count()}}item</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+
                 @endif
 
                 @endforeach
@@ -157,23 +160,25 @@
 
 
             <div class="banner-newarrivals">
-                <div class="arrivals-img">
+                <a href="{{route('home.product')}}">
+                    <div class="arrivals-img">
 
 
-                    <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-05.jpg" alt="">
+                        <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/08/shop-category-05.jpg" alt="">
 
 
 
-                    <div class="text-arrivals">
-                        <p class="arrivals text-center">#newarrivals</p>
-                        <a href="">
-                            <p class="arrivals-shop" href="">Shop now</p>
+                        <div class="text-arrivals">
+                            <p class="arrivals text-center">#newarrivals</p>
 
-                        </a>
+                            <p class="arrivals-shop">Shop now</p>
+
+
+                        </div>
+
+
                     </div>
-
-
-                </div>
+                </a>
             </div>
 
         </div>
@@ -220,35 +225,46 @@
         <div class="many-products mb-5 tab-pane fade show active " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-                <div class="col slide-top1 ">
-                    <div class="card">
-                        <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                        <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
+                @foreach ($product_best as $prod)
 
-                        <div class="product-icons">
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
-                            <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
+
+                <div class="col slide-top1 ">
+
+                    <a href="{{route('home.detail', $prod->id)}}">
+
+                        <div class="card">
+                            <img class="card-img-top" src="{{url('uploads')}}/{{$prod->image}}" alt="Title">
+                            @foreach ( $prod->img as $item)
+                            <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                            @endforeach
+
+                            <div class="product-icons">
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                                <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                                    <i class="fa-regular fa-eye"></i>
+                                </a>
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title">{{$prod->name}}</p>
+                                <p class="card-text">${{$prod->price}}.00</p>
+                            </div>
+                            <div class="icon-heart">
+                                <a href="">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                            </div>
+
                         </div>
-                        <div class="card-body">
-                            <p class="card-title">Thin Coat Lightly</p>
-                            <p class="card-text">$88.00 – $89.00</p>
-                        </div>
-                        <div class="icon-heart">
-                            <a href="">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
+                    </a>
 
                 </div>
-                <div class="col slide-top1 ">
+                @endforeach
+                <!-- <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -491,7 +507,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -506,35 +522,45 @@
 
         <div class="  many-products tab-pane fade mb-5 " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-                <div class="col slide-top1 ">
-                    <div class="card">
-                        <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
-                        <img class=" img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
+                @foreach ($product_new as $prod)
 
-                        <div class="product-icons">
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
-                            <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                            <a class="item-icon" href="">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
+
+                <div class="col slide-top1 ">
+
+                    <a href="{{route('home.detail', $prod->id)}}">
+
+                        <div class="card">
+                            <img class="card-img-top" src="{{url('uploads')}}/{{$prod->image}}" alt="Title">
+                            @foreach ( $prod->img as $item)
+                            <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                            @endforeach
+
+                            <div class="product-icons">
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                                <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                                    <i class="fa-regular fa-eye"></i>
+                                </a>
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title">{{$prod->name}}</p>
+                                <p class="card-text">${{$prod->price}}.00</p>
+                            </div>
+                            <div class="icon-heart">
+                                <a href="">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p class="card-title">Thin Coat Lightly</p>
-                            <p class="card-text">$88.00 – $89.00</p>
-                        </div>
-                        <div class="icon-heart">
-                            <a href="">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
+                    </a>
 
                 </div>
-                <div class="col slide-top1 ">
+                @endforeach
+                <!-- <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
                         <img class="img-change" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-177-405x510.jpg" alt="Title">
@@ -777,7 +803,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -787,6 +813,52 @@
 
         <div class="many-products tab-pane fade  mb-5 " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
             <div class="row mt-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
+
+                @foreach ($product_sale as $prod)
+
+                @if ($prod->discount != null)
+                <div class="col slide-top1 ">
+
+                    <a href="{{route('home.detail', $prod->id)}}">
+
+                        <div class="card">
+                            <img class="card-img-top" src="{{url('uploads')}}/{{$prod->image}}" alt="Title">
+                            @foreach ( $prod->img as $item)
+                            <img class="img-change" src="{{url('uploads/imgs_product')}}/{{ $item->images }}" alt="Title">
+                            @endforeach
+
+                            <div class="product-icons">
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                                <a class="item-icon me-3 ms-3 me-md-1 ms-md-1" href="">
+                                    <i class="fa-regular fa-eye"></i>
+                                </a>
+                                <a class="item-icon" href="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title">{{$prod->name}}</p>
+                                <p class="card-text"> <span><del class="pe-3" style="color: #ababab; font-weight: normal;">${{$prod->price}}.00</del></span>${{$prod->discount}}.00</p>
+                            </div>
+                            <div class="icon-heart">
+                                <a href="">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                            </div>
+
+                            <span class="on-sale product-flash">
+                                Sale
+                            </span>
+                        </div>
+                    </a>
+
+                </div>
+                @endif
+
+                @endforeach
+                <!-- 
                 <div class="col slide-top1 ">
                     <div class="card">
                         <img class="card-img-top" src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-178-405x510.jpg" alt="Title">
@@ -1058,7 +1130,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -1184,7 +1256,7 @@
 
 
     <div class="goto-blog">
-        <a href="">
+        <a href="{{route('home.blog')}}">
             <p>Go to blog</p>
         </a>
     </div>

@@ -50,10 +50,10 @@
 
                                 <ul class="nav-menu d-flex">
                                     <li class="nav-item">
-                                        <a href="">Home</a>
+                                        <a href="{{route('home.index')}}">Home</a>
                                     </li class="nav-item">
                                     <li class="nav-item">
-                                        <a href="">Shop</a>
+                                        <a href="{{route('home.product')}}">Shop</a>
 
                                         <ul>
                                             <div class="menu-con d-flex">
@@ -144,7 +144,7 @@
                                         </ul>
                                     </li class="nav-item">
                                     <li class="nav-item">
-                                        <a href="">Blog</a>
+                                        <a href="{{route('home.blog')}}">Blog</a>
                                     </li>
                                 </ul>
                             </div>
@@ -152,10 +152,10 @@
                                 <ul class="nav-menu d-flex">
 
                                     <li class="nav-item">
-                                        <a href="">About</a>
+                                        <a href="{{route('home.about')}}">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="">Contact</a>
+                                        <a href="{{route('home.contact')}}">Contact</a>
                                     </li>
                                     <li class="nav-item">
                                         <i class="fa-solid fa-magnifying-glass"></i>

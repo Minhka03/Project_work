@@ -5,21 +5,6 @@
 
 <h3 class="text-center">Danh mục sản phẩm</h3>
 
-@if (Session::has('no'))
-<div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{Session::get('no')}}
-</div>
-@endif
-
-@if (Session::has('yes'))
-<div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{Session::get('yes')}}
-</div>
-@endif
-
-
 <div class="category-item" style="display: flex; align-items: center; margin-top: 40px; margin-bottom: 20px;">
     <a href="{{route('category.create')}}">
         <button class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"><span style="padding-left: 10px;"></span></i>Thêm mới danh mục</button>

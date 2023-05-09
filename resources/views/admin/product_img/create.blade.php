@@ -13,10 +13,9 @@
         @csrf
         <div class="mb-3" style="margin-bottom: 10px;">
         <label for="">Tên sản phẩm</label>
-            <select name="name" id="" class="form-control"  style="width: 500px;" >
+            <select name="product_id" id="" class="form-control"  style="width: 500px;" >
               @foreach ($product as $pro )
               <option value="{{$pro->id}}">{{$pro->name}}</option>
-            
               @endforeach
             </select>
         </div>

@@ -276,9 +276,9 @@ a {
 
 /* BODY CLASSES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.menu-open {
+/* .menu-open {
   overflow: hidden;
-}
+} */
 
 .menu-open .trigger-menu-wrapper {
   background: transparent;
@@ -614,8 +614,8 @@ a {
   color: #696969;
 }
 
-.scrollbar{
-  max-height: 100%;
+ .scrollbar{
+  max-height: 450px;
   overflow-x: hidden;
   padding: 15px;
   

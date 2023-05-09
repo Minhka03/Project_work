@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
          Category::create($form_data);
 
-         return redirect()->route('category.index');
+         return redirect()->route('category.index')->with('yes' , 'Bạn thêm mới thành công');
 
     }
 

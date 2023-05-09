@@ -4,19 +4,6 @@
 @section('main')
 <h3 class="text-center">Sản phẩm</h3>
 
-@if (Session::has('no'))
-<div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{Session::get('no')}}
-</div>
-@endif
-
-@if (Session::has('yes'))
-<div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{Session::get('yes')}}
-</div>
-@endif
 <div class="category-item" style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; margin-bottom: 20px;">
     <div style="display: flex; align-items: center;">
         <a href="{{route('product.create')}}">

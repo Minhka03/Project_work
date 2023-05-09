@@ -24,7 +24,7 @@
                         <a href="">/</a>
                     </li>
                     <li>
-                        <p class="name-category" href="">Short Jeans</p>
+                        <p class="name-category" href="">{{$product->name}}</p>
                     </li>
                 </ul>
                 <ul class="item-redirect">
@@ -44,51 +44,56 @@
                 <div class=" col-xl-5 col-lg-5 col-md-5  col-sm-12">
                     <form action="{{route('cart.add', $product->id)}}" method="post">
                         @csrf
-                    <div class="detail-img">
-                        <div class="swiper mySwiper2 detail-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="{{url('uploads')}}/{{$product->image}}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    @foreach ($product->img as $item )
-                                    <img src="{{url('uploads/imgs_product')}}/{{$item->images}}" />
-                                    @endforeach
+                        <div class="detail-img">
+                            <div class="swiper mySwiper2 detail-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="{{url('uploads')}}/{{$product->image}}" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @foreach ($product->img as $item )
+                                        <img src="{{url('uploads/imgs_product')}}/{{$item->images}}" />
+                                        @endforeach
 
 
-                                </div>
-                                <div class="swiper-slide">
+                                    </div>
+                                    <!-- <div class="swiper-slide">
                                     <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-89-570x760.jpg" />
                                 </div>
                                 <div class="swiper-slide">
                                     <img src="https://themes.g5plus.net/april/wp-content/uploads/2017/09/product-89-570x760.jpg" />
-                                </div>
+                                </div> -->
 
-                            </div>
-                            <!-- <div class="swiper-button-next"></div>
+                                </div>
+                                <!-- <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div> -->
-                        </div>
-                        <div thumbsSlider="" class="swiper mySwiper swiper-thumb">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide p-2">
-                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                                </div>
-                                <div class="swiper-slide p-2">
-                                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                </div>
-                                <div class="swiper-slide p-2">
-                                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                </div>
-                                <div class="swiper-slide p-2">
-                                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                </div>
-                                <div class="swiper-slide p-2">
-                                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                            </div>
+                            <div thumbsSlider="" class="swiper mySwiper swiper-thumb">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide p-2" style="width: 120px;
+    height: 120px;">
+                                        <img src="{{url('uploads')}}/{{$product->image}}" />
+
+                                    </div>
+                                    <div class="swiper-slide p-2" style="width: 120px;
+    height: 120px;">
+                                        @foreach ($product->img as $item )
+                                        <img src="{{url('uploads/imgs_product')}}/{{$item->images}}" />
+                                        @endforeach
+                                    </div>
+                                    <!-- <div class="swiper-slide p-2">
+                                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                    </div>
+                                    <div class="swiper-slide p-2">
+                                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                    </div>
+                                    <div class="swiper-slide p-2">
+                                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                    </div> -->
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
                 </div>
                 <div class=" col-xl-7 col-lg-7 col-md-7 col-sm-12">
                     <div class="description">
@@ -107,7 +112,7 @@
                                     </div>
                                     <select class="design ms-2" name="att[]" id="">
 
-                                      
+
 
                                         @foreach ($product->pro_attribute as $item )
                                         @if ($item->name == 'size')
@@ -136,7 +141,7 @@
                                     <input class="item-1" value="1" id="quantity-input" name="quantity" type="text">
                                     <button type="button" class="btn-number1 icon-plus" onclick="increaseQuantity()" href=" "><i class="fa-sharp fa-regular fa-plus"></i></button>
                                 </div>
-                                
+
                                 <button class="item-2" type="submit">Add to cart</button>
 
                             </div>
