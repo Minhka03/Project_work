@@ -21,6 +21,11 @@ class Cart extends Model
         return $this->belongsToMany(Attribute::class, 'cart_items' , 'id_cart' , 'id_att');
     }
 
+    public function cus() {
+        return $this->hasOne(Customer::class , 'id' , 'id_cus'); 
+        
+    }
+
     
 
 }

@@ -68,7 +68,7 @@
                         <div class="title_cart">
                             <img src="{{url('uploads')}}/{{$item->image}}" alt="">
 
-                            <form action="{{route('cart.update_att', $item->id)}}" method="post">
+                            <form action="{{route('cart.update_att', $item->id)}}" method="post" class="ms-2">
                                 @csrf
                                 <div class="description-cart">
                                     <p class="name">{{$item->name}}</p>
@@ -110,8 +110,8 @@
                                     </p>
                                     <div class="icon-cart">
 
-                                        <button href="" type="submit" class="btn btn-primary"><i class="fas fa-edit" style="color: #fff;"></i></button>
-                                        <a href="{{route('cart.delete', $item->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></a>
+                                        <button href="" type="submit" ><i class="fas fa-edit" style="color: gray;"></i></button>
+                                        <a href="{{route('cart.delete', $item->id)}}" ><i class="fa-solid fa-trash-can" style="color: gray;"></i></a>
 
 
                                     </div>

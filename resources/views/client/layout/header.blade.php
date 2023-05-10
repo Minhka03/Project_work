@@ -246,8 +246,26 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a style="text-decoration: none;" href="{{route('home.logout')}}"> <i class="fa-solid fa-user"></i></a>
+                                    <li class="nav-item1">
+                                        <div class="btn-group">
+                                            <button class=" dropdown-toggle" style="color: #696969;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <a style="text-decoration: none;" href="{{route('home.logout')}}"> <i class="fa-solid fa-user"></i></a>
+                                            </button>
+                                            <ul class="dropdown-menu">
+
+                                                @if ($auth)
+                                                <li><a class="dropdown-item" href="">{{$auth->name}}</a></li>
+                                                <li><a class="dropdown-item" href="">{{$auth->email}}</a></li>
+                                                <li><a class="dropdown-item" href="{{route('home.logout')}}">Logout</a></li>
+                                                @endif
+
+                                                @if (!$auth)
+                                                <li><a class="dropdown-item" href="{{route('home.login')}}">Login</a></li>
+                                                <li><a class="dropdown-item" href="{{route('home.register')}}">Register</a></li>
+                                                @endif
+                                            </ul>
+                                        </div>
+
                                     </li>
                                 </ul>
                             </div>

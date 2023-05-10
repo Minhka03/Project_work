@@ -28,8 +28,8 @@ header {
  position: absolute;
   content: "";
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: 23px;
+  width: 60%;
   height: 2px;
   background: #333;
   transform: scaleX(0);
@@ -624,4 +624,10 @@ a {
   width:0.5em;
   background-color: rgb(207, 207, 207);
 }
-
+.nav-item1 {
+  padding:  27px;
+  color: #696969;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
