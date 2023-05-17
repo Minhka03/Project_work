@@ -54,7 +54,7 @@ class CartController extends Controller
                             'image' => $product->image,
                             'price' => $product->price,
                             'quantity' => $req->quantity,
-                            'totalPrice'=>$product->price * $req->quantity,
+                            'totalPrice' => $product->price * $req->quantity,
                             'id_pro' => $product->id,
                             'id_cus' => Auth::guard('cus')->user()->id,
                         ]);
@@ -78,7 +78,7 @@ class CartController extends Controller
                 'image' => $product->image,
                 'price' => $product->price,
                 'quantity' => $req->quantity,
-                'totalPrice'=>$product->price * $req->quantity,
+                'totalPrice' => $product->price * $req->quantity,
                 'id_pro' => $product->id,
                 'id_cus' => Auth::guard('cus')->user()->id,
             ]);
@@ -119,17 +119,38 @@ class CartController extends Controller
     }
 
 
-    public function update_quantity(Request $request , Cart $cart_item)
+    public function update_quantity(Request $request, Cart $cart_item)
     {
-        
-       
-        $cart_item->quantity = $request->quantity;
-        $cart_item->save();     
-     
 
-        $cart_item->totalPrice = $request->quantity * $cart_item->price;
-        // dd($cart_item->totalPrice);
-        $cart_item->save();
+
+        if ($request->quantity <= 0 || $request->quantity != is_numeric($request->quantity)) {
+
+
+            if ($request->quantity == 0) {
+                $cart_atts = Cart_Item::where('id_cart', $cart_item->id)->get();
+                foreach ($cart_atts as $value) {
+                    $value->delete();
+                }
+
+                $cart_item->delete();
+            } else {
+                $cart_item->quantity =1;
+                $cart_item->totalPrice = 1 * $cart_item->price;
+                $cart_item->save();
+            }
+        } else {
+            $cart_item->quantity = $request->quantity;
+            $cart_item->save();
+            $cart_item->totalPrice = $request->quantity * $cart_item->price;
+            $cart_item->save();
+        }
+
+
+
+
+
+       
+       
 
         return redirect()->back();
     }
@@ -138,67 +159,61 @@ class CartController extends Controller
     public function delete_cart(Cart $cart_item)
     {
 
-        $cart_atts = Cart_Item::where('id_cart' , $cart_item->id)->get();
+        $cart_atts = Cart_Item::where('id_cart', $cart_item->id)->get();
 
-       foreach ($cart_atts as $value) {
-           $value->delete();
-       }
+        foreach ($cart_atts as $value) {
+            $value->delete();
+        }
 
-       $cart_item->delete();
+        $cart_item->delete();
 
-       return redirect()->back();
+        return redirect()->back();
     }
 
 
     public function checkout()
     {
-        
+
         $auth = auth('cus')->user();
-       return view('client.page.checkout' , compact('auth'));
+        return view('client.page.checkout', compact('auth'));
     }
 
-    public function order_checkout(Request $req , Cart $cart)
+    public function order_checkout(Request $req, Cart $cart)
     {
-       $form_data = $req->only('name' , 'email' , 'phone' , 'address' , 'token' , 'order_note' , 'shipping_method', 'payment_method' );
+        $form_data = $req->only('name', 'email', 'phone', 'address', 'token', 'order_note', 'shipping_method', 'payment_method');
 
-       $form_data['cus_id'] = auth('cus')->id();
+        $form_data['cus_id'] = auth('cus')->id();
 
-       $order = Order::create($form_data);
+        $order = Order::create($form_data);
 
-       $cart = Cart::where('id_cus', Auth::guard('cus')->user()->id)->get();
+        $cart = Cart::where('id_cus', Auth::guard('cus')->user()->id)->get();
 
-        
-      foreach($cart as $items) {
-        $data = [
-            'product_id' =>$items->id_pro,
-            'order_id' =>$order->id,
-            'quantity' =>$items->quantity,
-            'price'=>$items->price,
 
-        ];
-       OrderDetail::create($data);
-      }
+        foreach ($cart as $items) {
+            $data = [
+                'product_id' => $items->id_pro,
+                'order_id' => $order->id,
+                'quantity' => $items->quantity,
+                'price' => $items->price,
 
-      $email =  $req->email;
-      $token = Str::random(50);
-      $order ->update(['token' => $token]);
-      Mail::to($email)->send(new OrderMail($order , $token));
+            ];
+            OrderDetail::create($data);
+        }
 
-     
-      
+        $email =  $req->email;
+        $token = Str::random(50);
+        $order->update(['token' => $token]);
+        Mail::to($email)->send(new OrderMail($order, $token));
     }
 
     public function verifyOrder($token)
-    
+
     {
-        $order = Order::where('token' , $token)->firstOrFail();
-        $order ->update(['token' =>null]);
-        $order->status = 1; 
+        $order = Order::where('token', $token)->firstOrFail();
+        $order->update(['token' => null]);
+        $order->status = 1;
         $order->save();
 
         return redirect()->route('home.index')->with('yes', 'Bạn đã đặt hàng thành công');
-
-
-
     }
 }

@@ -30,7 +30,7 @@
 
         <div class="cart-product">
             <div class="row">
-                <div class="item-cart none row"> 
+                <div class="item-cart none row">
                     <div class="col-lg-6">
                         <div class="name-product">
                             <p>Product</p>
@@ -54,13 +54,13 @@
                         </div>
                     </div>
                 </div>
-                <?php $total = 0;?>
+                <?php $total = 0; ?>
 
 
                 @foreach ($cart as $item )
-                <?php 
-                    $total += $item->totalPrice;
-                ?>      
+                <?php
+                $total += $item->totalPrice;
+                ?>
                 <div class="item-cart row ">
 
                     <div class="col-xl-6 col-lg-12 col-md-12 col-12 cart-border">
@@ -110,8 +110,8 @@
                                     </p>
                                     <div class="icon-cart">
 
-                                        <button href="" type="submit" ><i class="fas fa-edit" style="color: gray;"></i></button>
-                                        <a href="{{route('cart.delete', $item->id)}}" ><i class="fa-solid fa-trash-can" style="color: gray;"></i></a>
+                                        <button href="" type="submit"><i class="fas fa-edit" style="color: gray;"></i></button>
+                                        <a href="{{route('cart.delete', $item->id)}}"><i class="fa-solid fa-trash-can" style="color: gray;"></i></a>
 
 
                                     </div>
@@ -131,14 +131,16 @@
 
                         <div class="list">
                             <div class="quantity-cart">
-                                <div style="position: relative;">
-                                    <form action="{{route('cart.update_quantity', $item->id)}}" method="post" class="form-inline form-{{$item->id}}" role="form">
+                                <div style="position: relative;">                                
+                                    <form action="{{route('cart.update_quantity', $item->id)}}" id="form{{$item->id}}" method="post">
                                         @csrf
-                                        <button type="submit" class="minus" data-id="{{$item->id}}" class="btn btn-primary"><i class="fa-sharp fa-solid fa-minus"></i></button>
-                                        <div class="form-group">
-                                            <input type="text" class="btn-quantity quantity-input-{{$item->id}}" name="quantity" value="{{$item->quantity}}">
-                                        </div>
-                                        <button type="submit" class="plus" data-id="{{$item->id}}" class="btn btn-primary"><i class="fa-sharp fa-solid fa-plus"></i></button>
+                                        <button type="button" class="minus" onclick="mark_cart('-', {{$item->id}})" class="btn">
+                                            -
+                                        </button>
+                                        <input type="text" class="btn-quantity" value="{{$item->quantity}}" name="quantity" id="quantity{{$item->id}}" onblur="quantityCart({{$item->id}})" />
+                                        <button type="button" class="plus" onclick="mark_cart('+', {{$item->id}})" class="btn">
+                                            +
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -146,7 +148,7 @@
 
                         <div class="list">
                             <p class=" text-center">${{$item->totalPrice}}.00</p>
-                           
+
                         </div>
 
                     </div>
@@ -231,55 +233,36 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery.min.js"></script>
+
 <script>
-    var token = $('input[name="_token"]').val();
-    $('.minus').click(function(ev) {
-        // ev.preventDefault(); 
-        var id = $(this).data('id');
-        var action = $('.form-' + id).attr('action');
-        var quantity = parseInt($('.quantity-input-' + id).val());
-
-
-        if (quantity > 1) {
-            quantity -= 1;
-            $('.quantity-input-' + id).val(quantity);
-            $.ajax({
-                url: action,
-                type: 'POST',
-                data: {
-                    quantity: quantity,
-                    _token: token
-                },
-                success: function(data) {
-
-                }
-            })
+function mark_cart(e, id) {
+    let form = document.getElementById('form' + id);
+    let result = document.getElementById('quantity' + id);
+    if (e == '-') {
+        if (result.value > 1) {
+            result.value = result.value - 1;
         }
+    } else {
+        result.value = Number(result.value) + 1;
+    }
+    form.submit();
+}
 
-    })
+function quantityCart(id) {
+    let form = document.getElementById('form' + id);
 
-    $('.plus').click(function(ev) {
-        // ev.preventDefault();
-        var id = $(this).data('id');
-        var action = $('.form-' + id).attr('action');
-        var quantity = parseInt($('.quantity-input-' + id).val());
-        quantity += 1;
-        $('.quantity-input-' + id).val(quantity);
-        $.ajax({
-            url: action,
-            type: 'POST',
-            data: {
-                quantity: quantity,
-                _token: token
-            },
-            success: function(data) {}
-        })
-        // alert(qtt);
-    })
+    let result1 = document.getElementById('quantity' + id);
+    if(result1.value <= 0) {
+        document.getElementById('quantity' + id).value = 1;
+    }
+    if(isNaN(result1.value)) {
+        document.getElementById('quantity' + id).value = 1;
+    }
+    form.submit();
+
+}
 
 
-    // console.log(quantityInput);
 </script>
 
 
